@@ -91,7 +91,7 @@ const Intro = React.forwardRef(( props, ref ) => {
             <Button title={"Entre em contato"} animation={ true } />
             
             <styles.ScrollDownCont>
-                Role para baixo
+                Deslize para baixo
                 <styles.ScrollDown />
             </styles.ScrollDownCont>
             
