@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,360;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.blinker{
+    animation: blinker 1.5s linear infinite;
+    color: whitesmoke;
+    
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+    scroll-behavior: smooth;
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
   }
+
+#teste{
+    transition: 0.5s;
+    transform: translateY(100%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#teste:hover{
+    transform: translateY(0);
 }
 
-.App-link {
-  color: #61dafb;
+#testeDiv{
+    background-image: url("https://cda-teste.s3.amazonaws.com/gorilla_project_01.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+/* *,
+html,
+body{
+    margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
 }
+
+#menu_section{
+    background: yellow;
+}
+
+#content_section{
+    background: red;
+    width: 100vw;
+}
+
+@media screen and ( max-width: 767px){
+    #menu_section{
+        width: 80vw;
+        position: absolute;
+        height: 100vh;
+    }
+} */
