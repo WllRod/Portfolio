@@ -3,7 +3,8 @@ import styles from 'styled-components'
 export const Button = styles.div`
     background: #ff4c60;
     height: 50px;
-    width: 150px;
+    width: max-content;
+    padding:10px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -15,7 +16,7 @@ export const Button = styles.div`
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
     font-family: 'Rubik', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     color: white;
     ${ props => props.animation && `
         transform: translatey(0px);

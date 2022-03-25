@@ -9,13 +9,11 @@ function sleep(ms){
     return new Promise( resolve => setTimeout( resolve, ms ))
 }
 
-
 const Intro = React.forwardRef(( props, ref ) => {
     const frases    = [
         "Desenvolvedor Python",
         "Desenvolvedor React",
         "Desenvolvedor ADVPL",
-        
     ]
     const animation = props.animation
     const [ fraseC, setFraseC ]             = useState( "" )
@@ -28,11 +26,9 @@ const Intro = React.forwardRef(( props, ref ) => {
                 setFraseC( f.substring(0, i) )
                 await sleep( 100 )
             }
-           
         }
 
         inc()
-
     }
 
     useEffect(() => {
@@ -56,9 +52,7 @@ const Intro = React.forwardRef(( props, ref ) => {
                     await sleep( 30 )
                 }
                 setindex( null )
-           
             }
-           
         }
         espera()
         

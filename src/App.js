@@ -9,14 +9,15 @@ import Menu from './components/Menu/menu'
 import { Divide as Hamburger } from 'hamburger-react'
 import Technologies from './components/Projects/projects'
 import { ObserverHook } from './components/ObserverHook/observer'
-
+import Contact from './components/Contact/contact'
 
 const MainApp = ( props ) => {
-    const introRef  = useRef( null )
-    const aboutRef  = useRef( null )
+    const introRef      = useRef( null )
+    const aboutRef      = useRef( null )
     const experienceRef = useRef( null )
-    const projectRef  = useRef( null )
-    const refs  = useRef([ introRef, aboutRef, experienceRef ])
+    const projectRef    = useRef( null )
+    const contactRef    = useRef( null )
+    const refs  = useRef([ introRef, aboutRef, experienceRef, contactRef ])
     
     const [ showMenu, setShowMenu   ]   = useState( false )
     const [ values, setValues   ]   = useState(false)
@@ -51,6 +52,10 @@ const MainApp = ( props ) => {
 
                     <styles.ContentSection showMenu={showMenu}>
                         <Experience ref={experienceRef } id="experience" animation={values.experience}/>
+                    </styles.ContentSection>
+
+                    <styles.ContentSection showMenu={showMenu}>
+                        <Contact ref={contactRef } id="contact" animation={values.contact}/>
                     </styles.ContentSection>
 
                     {/* <styles.ContentSection showMenu={showMenu}>

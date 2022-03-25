@@ -3,7 +3,7 @@ import * as styles from '../../styles/componentsStyles/button'
 
 const Button    = ( props ) => {
     return(
-        <styles.Button animation={ props.animation } style={ props.style }>{ props.title }</styles.Button>
+        <styles.Button animation={ props.animation } style={ props.style } {...props}>{ props.title }</styles.Button>
     )
 }
 
