@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as styles from '../../styles/componentsStyles/menu'
-import { Home, Person, School, Work } from '@material-ui/icons'
+import { Home, Person, School, Work, ChatBubble } from '@material-ui/icons'
 
 const Menu  = React.forwardRef(( props, ref) => {
     
@@ -125,6 +125,10 @@ const Menu  = React.forwardRef(( props, ref) => {
             <styles.Button onClick={ () => scrollToDiv("experience")} focus={focus.experience}>
                <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><School /></section>
                <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Experiências</section>
+            </styles.Button>
+            <styles.Button onClick={ () => scrollToDiv("contact")} focus={focus.contact}>
+               <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><ChatBubble /></section>
+               <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Contato</section>
             </styles.Button>
             {/* <styles.Button onClick={ () => scrollToDiv("projects")} focus={focus.projects}>
                <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><Work /></section>
