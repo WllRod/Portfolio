@@ -10,6 +10,22 @@ import { Divide as Hamburger } from 'hamburger-react'
 import Technologies from './components/Projects/projects'
 import { ObserverHook } from './components/ObserverHook/observer'
 import Contact from './components/Contact/contact'
+import Button from './components/Assets/button'
+import { useSelector } from 'react-redux'
+
+const Modal = ( props ) => {
+    
+    if( !(props.component) ){
+        return null
+    }
+    return(
+        <div className="parent">
+            <div className='child'>
+                { props.component }
+            </div>
+        </div>
+    )
+}
 
 const MainApp = ( props ) => {
     const introRef      = useRef( null )
@@ -17,8 +33,8 @@ const MainApp = ( props ) => {
     const experienceRef = useRef( null )
     const projectRef    = useRef( null )
     const contactRef    = useRef( null )
-    const refs  = useRef([ introRef, aboutRef, experienceRef, contactRef ])
-    
+    const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef ])
+    const modalContent  = useSelector( state => state.data )
     const [ showMenu, setShowMenu   ]   = useState( false )
     const [ values, setValues   ]   = useState(false)
     
@@ -31,6 +47,7 @@ const MainApp = ( props ) => {
     return(
         <>
             <GlobalStyle />
+            <Modal component={modalContent}/>
             {/* <button onClick={scroller}>SCROLLER</button> */}
             <styles.App>
                 

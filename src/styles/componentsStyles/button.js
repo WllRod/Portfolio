@@ -4,6 +4,7 @@ export const Button = styles.div`
     background: #ff4c60;
     height: 50px;
     width: max-content;
+    min-width:100px;
     padding:10px;
     display: flex;
     text-align: center;

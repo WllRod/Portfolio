@@ -6,6 +6,7 @@ import { AnimationHooks } from '../animationHooks/animationHook'
 import { ObserverHook } from '../ObserverHook/observer'
 import Button from '../Assets/button'
 import emailjs from '@emailjs/browser';
+import { useDispatch } from 'react-redux'
 
 const Contact   = React.forwardRef(( props, ref) => {
     const labelsRef = React.useRef( null )
@@ -15,6 +16,7 @@ const Contact   = React.forwardRef(( props, ref) => {
     const [ values, setValues ] = React.useState( false )
     const [ inputs, setInputs ] = React.useState( {} )
     const observer  = ObserverHook( refs )
+    const dispatch  = useDispatch()
 
     React.useEffect(() => {
         setValues( observer )
@@ -41,10 +43,20 @@ const Contact   = React.forwardRef(( props, ref) => {
       
         emailjs.send(SERVICE_ID, TEMPLATE_ID, data, USER_ID)
             .then((result) => {
-                alert(result.text);
+                dispatch({ type: 'SHOW_MODAL', Component: <ModalContent />});
             }, (error) => {
                 alert(error.text);
         });
+    }
+
+    
+    const ModalContent   = ( props ) => {
+        return(
+            <>
+                E-mail enviado com sucesso!
+                <Button title={"Sair"} onClick={() => dispatch({ type: 'SHOW_MODAL', Component: null})}/>
+            </>
+        )
     }
     return(
         <Card title={"Entre em contato"} animation={ props.animation || animation } ref={ ref } id={ props.id }>
