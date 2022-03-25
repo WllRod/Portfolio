@@ -43,7 +43,7 @@ const MainApp = ( props ) => {
                         <styles.HambMenuContainer showMenu={showMenu}>
                             <Hamburger color={'whitesmoke'} size={30} duration={0.5} toggled={showMenu} toggle={setShowMenu}/>
                         </styles.HambMenuContainer>
-                        <Intro id="intro" animation={true} ref={ introRef }/>
+                        <Intro id="intro" animation={true} ref={ introRef } contact={contactRef}/>
                     </styles.ContentSection>
                     
                     <styles.ContentSection showMenu={showMenu}>

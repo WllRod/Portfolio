@@ -18,26 +18,26 @@ export const Button = styles.div`
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     color: white;
-    ${ props => props.animation && `
-        transform: translatey(0px);
-        &:hover{
-            animation: float 0.5s ease-in-out;
-        }
+    // ${ props => props.animation && `
+    //     transform: translatey(0px);
+    //     &:hover{
+    //         animation: float 0.5s ease-in-out;
+    //     }
 
-        @keyframes float{
-            0%{
-                //transform: translatey(0px);
-            }
-            50%{
-                transform: translatey(5px);
-                width: 100px;
-                height: 40px;
+    //     @keyframes float{
+    //         0%{
+    //             //transform: translatey(0px);
+    //         }
+    //         50%{
+    //             transform: translatey(5px);
+    //             width: 100px;
+    //             height: 40px;
                 
-            }
-            100%{
-                //transform: translatey(0px);
-            }
-        }
-    `}
+    //         }
+    //         100%{
+    //             //transform: translatey(0px);
+    //         }
+    //     }
+    // `}
 
 `

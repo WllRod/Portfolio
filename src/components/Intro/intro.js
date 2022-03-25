@@ -31,6 +31,10 @@ const Intro = React.forwardRef(( props, ref ) => {
         inc()
     }
 
+    const scrollToContactSection    = ( ) => {
+        props.contact.current.scrollIntoView()
+    }
+
     useEffect(() => {
         async function espera(){
             if( index === null){
@@ -82,7 +86,7 @@ const Intro = React.forwardRef(( props, ref ) => {
                     </a>
                 </styles.ExternaLink>
             </div>
-            <Button title={"Entre em contato"} animation={ true } />
+            <Button title={"Entre em contato"} animation={ true } onClick={scrollToContactSection}/>
             
             <styles.ScrollDownCont>
                 Deslize para baixo
