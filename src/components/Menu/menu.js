@@ -1,11 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import * as styles from '../../styles/componentsStyles/menu'
-import { Home, Person, School, Work } from '@material-ui/icons'
+import { Home, Person, School, Work, ChatBubble } from '@material-ui/icons'
 
 const Menu  = React.forwardRef(( props, ref) => {
     
     const [ refs, setRefs ] = useState( null )
     const [ focus, setFocus ]   = useState({})
+    const menuOptions   = [
+        {
+            id: "intro",
+            label: "Home",
+            icon: <Home />
+        },
+        {
+            id: "about",
+            label: "Sobre Mim",
+            icon: <Person />
+        },
+        {
+            id: "experience",
+            label: "Experiências",
+            icon: <School />
+        },
+        {
+            id: "contact",
+            label: "Contato",
+            icon: <ChatBubble />
+        }
+    ]
     useEffect(() => {
         setRefs( ref.current )
         setFocus( Object.assign({}, ...Object.keys( ref.current ).map((x) => ({[x]: false}))) )
@@ -113,8 +135,17 @@ const Menu  = React.forwardRef(( props, ref) => {
                     <styles.Square />
                 </styles.Logo>
             </styles.LogoContainer>
-            
-            <styles.Button onClick={ () => scrollToDiv("intro")} focus={focus.intro}>
+            {
+                menuOptions.map(( k, v ) => {
+                    return(
+                        <styles.Button onClick={ () => scrollToDiv(k.id)} focus={focus[k.id]}>
+                            <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}>{k.icon}</section>
+                            <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>{k.label}</section>
+                        </styles.Button>
+                    )
+                })
+            }
+            {/* <styles.Button onClick={ () => scrollToDiv("intro")} focus={focus.intro}>
                <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><Home /></section>
                <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Home</section>
             </styles.Button>
@@ -126,6 +157,10 @@ const Menu  = React.forwardRef(( props, ref) => {
                <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><School /></section>
                <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Experiências</section>
             </styles.Button>
+            <styles.Button onClick={ () => scrollToDiv("contact")} focus={focus.contact}>
+               <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><ChatBubble /></section>
+               <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Contato</section>
+            </styles.Button> */}
             {/* <styles.Button onClick={ () => scrollToDiv("projects")} focus={focus.projects}>
                <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><Work /></section>
                <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Projetos</section>

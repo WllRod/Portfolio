@@ -7,7 +7,7 @@ export const CardContainer = styles.div`
     align-items:flex-start;
     ${ props => props.animation ? '' : `visibility:hidden;`}
     flex-direction:column;
-    padding: 20px;
+    padding: 100px;
     position:relative;
     transition: 1.5s;
     transform: translateY(0);
@@ -25,11 +25,16 @@ export const CardContainer = styles.div`
         }
     `}
 
+    @media screen and ( max-width: 767px){
+        padding:30px;
+    }
+
 `
 export const CardTitle  = styles.div`
     position: relative;
     display: flex;
     flex-direction: row;
+    margin-right:500px;
 `
 export const CardTitleLabel = styles.h1`
     position: absolute;

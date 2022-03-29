@@ -9,13 +9,11 @@ function sleep(ms){
     return new Promise( resolve => setTimeout( resolve, ms ))
 }
 
-
 const Intro = React.forwardRef(( props, ref ) => {
     const frases    = [
         "Desenvolvedor Python",
         "Desenvolvedor React",
         "Desenvolvedor ADVPL",
-        
     ]
     const animation = props.animation
     const [ fraseC, setFraseC ]             = useState( "" )
@@ -28,11 +26,13 @@ const Intro = React.forwardRef(( props, ref ) => {
                 setFraseC( f.substring(0, i) )
                 await sleep( 100 )
             }
-           
         }
 
         inc()
+    }
 
+    const scrollToContactSection    = ( ) => {
+        props.contact.current.scrollIntoView()
     }
 
     useEffect(() => {
@@ -56,9 +56,7 @@ const Intro = React.forwardRef(( props, ref ) => {
                     await sleep( 30 )
                 }
                 setindex( null )
-           
             }
-           
         }
         espera()
         
@@ -88,7 +86,7 @@ const Intro = React.forwardRef(( props, ref ) => {
                     </a>
                 </styles.ExternaLink>
             </div>
-            <Button title={"Entre em contato"} animation={ true } />
+            <Button title={"Entre em contato"} animation={ true } onClick={scrollToContactSection}/>
             
             <styles.ScrollDownCont>
                 Deslize para baixo
