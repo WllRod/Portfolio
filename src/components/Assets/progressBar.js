@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as styles from '../../styles/componentsStyles/assets/progressBar'
 
 function sleep(ms){
-    return new Promise( resolve => setTimeout( resolve, ms ))
+    return new Promise( resolve => setInterval( resolve, ms ))
 }
 
 const colors    = [
@@ -19,20 +19,22 @@ const ProgressBar   = ( props ) => {
     const max       = props.max
     const animation = props.startAnimation
     const title     = props.title
-    
-    async function espera2(){
-            
-        for( var i = width; i <= max; i++){
-            setWidth( i )
-            await sleep( 5 )
-        }
-    }
+    let debounce = null
 
     useEffect(() => {
         if( animation ){
-            espera2()
+            
+            if( width <= max){
+                debounce = setTimeout(() => {
+                    let tmp = width
+                    tmp++
+                    setWidth( tmp )
+                }, 10)
+            }else{
+                debounce = clearTimeout(debounce)
+            }
         }
-    }, [ animation ])
+    }, [ animation, width ])
 
     useEffect(() => {
         setColor( colors[Math.floor(Math.random()*colors.length)] )
@@ -48,6 +50,7 @@ const ProgressBar   = ( props ) => {
                 <styles.PgrMain>
                     
                     <styles.Bar width={ width } background={color}>
+                        A
                       { props.mini ? 
                         <span style={{ marginLeft: '15px', fontSize: '15px', height: 'max-content', color: 'black'}}>{width}%</span>
                       : ''}

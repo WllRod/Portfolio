@@ -40,7 +40,7 @@ export const ExperienceContent  = styles.section`
         border-radius:30px;
         display: flex;
         background: #302f4e!important;
-        flex-direction:column;
+        flex-direction:row;
         width:33.5vw;
         height:auto;
         padding:20px;

@@ -30,6 +30,6 @@ export const Bar                = styles.div`
     border-radius: 10px;
     width: ${ props => props.width }%;
     background: ${ props => props.background};
-    transition: width 5ms ease;
-    
+    color:transparent;
+    font-size:10px;
 `
