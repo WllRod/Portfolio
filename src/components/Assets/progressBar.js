@@ -19,20 +19,22 @@ const ProgressBar   = ( props ) => {
     const max       = props.max
     const animation = props.startAnimation
     const title     = props.title
-    
-    async function espera2(){
-            
-        for( var i = width; i <= max; i++){
-            setWidth( i )
-            await sleep( 1 )
-        }
-    }
+    let debounce = null
 
     useEffect(() => {
         if( animation ){
-            espera2()
+            
+            if( width <= max){
+                debounce = setTimeout(() => {
+                    let tmp = width
+                    tmp++
+                    setWidth( tmp )
+                }, 10)
+            }else{
+                debounce = clearTimeout(debounce)
+            }
         }
-    }, [ animation ])
+    }, [ animation, width ])
 
     useEffect(() => {
         setColor( colors[Math.floor(Math.random()*colors.length)] )
