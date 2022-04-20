@@ -5,7 +5,7 @@ import { AnimationHooks } from '../animationHooks/animationHook'
 import { School, Work } from '@material-ui/icons'
 import { ObserverHook } from '../ObserverHook/observer'
 import ProgressBar from '../Assets/progressBar'
-import { KnowledgeCards, Content } from '../../styles/componentsStyles/knowledgerStyle'
+import { KnowledgeCards, Content, SubCardsContainer } from '../../styles/componentsStyles/knowledgerStyle'
 import { Data } from './Data'
 
 export const Knowledge = React.forwardRef(( props, ref ) => {
@@ -36,7 +36,7 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
                                 <School style={{ fontSize: '30px', color: '#ff4c60'}}/>
                             </styles.IconDiv>
                             <styles.LocalSpan>{v.Title}</styles.LocalSpan>
-                           <div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%', gap: '25px', flexWrap: 'wrap', alignItems: 'center'}}>
+                           <SubCardsContainer>
                                {
                                    v.SubCards.map(( v, s ) => {
                                        return(
@@ -54,7 +54,7 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
                                        )
                                    })
                                }
-                           </div>
+                           </SubCardsContainer>
                         </styles.Section>
                         
                     </styles.SectionsContainer>
