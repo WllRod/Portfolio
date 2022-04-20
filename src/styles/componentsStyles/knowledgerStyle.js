@@ -43,3 +43,19 @@ export const Content = styles.div`
     }
 
 `
+
+export const SubCardsContainer  = styles.div`
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    heigth:100%;
+    gap:25px;
+    flex-wrap:wrap;
+
+    @media screen and ( max-width: 767px){
+        &{
+            align-items:center;
+            justify-content:center;
+        }
+    } 
+`
