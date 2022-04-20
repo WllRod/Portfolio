@@ -59,7 +59,7 @@ const About = React.forwardRef(( props, ref) => {
                         Olá, meu nome é William Rodrigues, sou desenvolvedor Full-Stack. Residente de Petrópolis, RJ. Tenho conhecimento avançado na linguagem Python e no framework Flask, e conhecimento intermediário em ReactJS e React Native. E claro, disposto a aprender sempre mais!
                        </span>
                         <div style={{ display: 'flex', alignItems: 'center'}}>
-                            <a href="https://cda-teste.s3.amazonaws.com/Curriculo_William.pdf" target="_blank">
+                            <a href={process.env.REACT_APP_CV_PATH}>
                                 <Button title={"Download CV"} style={{
                                     fontSize: '0.8rem',
                                     fontWeight: '300'
