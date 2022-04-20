@@ -5,7 +5,6 @@ function sleep(ms){
     return new Promise( resolve => setTimeout( resolve, ms ))
 }
 
-
 const colors    = [
     "rgb(255, 209, 92)",
     "rgb(220, 53, 69)",
@@ -44,12 +43,14 @@ const ProgressBar   = ( props ) => {
         <styles.PgrBarContainer>
             <styles.Section1>
                 <span>{ title }</span>
-                <span>{width}%</span>
+                { props.mini ? '' : <span>{width}%</span>}
             </styles.Section1>
                 <styles.PgrMain>
                     
                     <styles.Bar width={ width } background={color}>
-                      
+                      { props.mini ? 
+                        <span style={{ marginLeft: '15px', fontSize: '15px', height: 'max-content', color: 'black'}}>{width}%</span>
+                      : ''}
                     </styles.Bar>
                 </styles.PgrMain>
         </styles.PgrBarContainer>

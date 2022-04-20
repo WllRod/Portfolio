@@ -29,6 +29,15 @@ const Contact   = React.forwardRef(( props, ref) => {
             [id]: e.target.value
         })
     }
+
+    const clearInputs   = () => {
+        let tmp = {}
+        Object.keys(inputs).map(( k, v ) => {
+            tmp[k]  = ''
+        })
+        setInputs( tmp )
+
+    }
     const handleSubmit  = ( e ) => {
         
         const SERVICE_ID    = process.env.REACT_APP_SERVICE_ID
@@ -39,14 +48,15 @@ const Contact   = React.forwardRef(( props, ref) => {
             to_name:inputs.name,
             from_name: inputs.email,
             message: inputs.message
-          };
-      
+        };
+
+        clearInputs()
+
         emailjs.send(SERVICE_ID, TEMPLATE_ID, data, USER_ID)
             .then((result) => {
                 dispatch({ type: 'SHOW_MODAL', Component: <ModalContent />});
-            }, (error) => {
-                alert(error.text);
-        });
+            })
+            
     }
 
     
@@ -73,10 +83,37 @@ const Contact   = React.forwardRef(( props, ref) => {
                     </styles.WppSpan>
                 </styles.TitleDivContainer>
                 <styles.FormContainer ref={formRef}>
-                    <input placeholder='Seu Nome' id='name' onChange={e => handleInputs( e )}/>
-                    <input placeholder='Endereço de Email' id='email' onChange={e => handleInputs( e )}/>
-                    <input style={{ minWidth: '91%' }} placeholder='Assunto' id='subject' onChange={e => handleInputs( e )}/>
-                    <textarea style={{ minWidth: '91%' }} placeholder='Mensagem' id='message' onChange={e => handleInputs( e )}/>
+                    <input 
+                        placeholder='Seu Nome' 
+                        id='name' 
+                        onChange={e => handleInputs( e )} 
+                        value={inputs.name || ''}
+                        autoComplete="nope"
+                       
+                    />
+                    <input 
+                        placeholder='Endereço de Email' 
+                        id='email' 
+                        onChange={e => handleInputs( e )} 
+                        value={inputs.email || ''}
+                        autoComplete="nope"
+                    />
+                    <input 
+                        style={{ minWidth: '91%' }} 
+                        placeholder='Assunto' 
+                        id='subject' 
+                        onChange={e => handleInputs( e )}
+                        value={inputs.subject || ''}
+                        autoComplete="nope"
+                    />
+                    <textarea 
+                        style={{ minWidth: '91%' }} 
+                        placeholder='Mensagem' 
+                        id='message' 
+                        onChange={e => handleInputs( e )} 
+                        value={inputs.message || ''}
+                        autoComplete="nope"
+                    />
                     <Button title="Mandar Mensagem" onClick={e => handleSubmit( e )}/ >
                     {/* <input type="submit" value="Send" /> */}
                 </styles.FormContainer>
