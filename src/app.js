@@ -12,6 +12,7 @@ import { ObserverHook } from './components/ObserverHook/observer'
 import Contact from './components/Contact/contact'
 import Button from './components/Assets/button'
 import { useSelector } from 'react-redux'
+import Knowledge from './components/Knowledges'
 
 const Modal = ( props ) => {
     
@@ -32,8 +33,9 @@ const MainApp = ( props ) => {
     const aboutRef      = useRef( null )
     const experienceRef = useRef( null )
     const projectRef    = useRef( null )
+    const knowledgeRef     = useRef( null )
     const contactRef    = useRef( null )
-    const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef ])
+    const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef, knowledgeRef ])
     const modalContent  = useSelector( state => state.data )
     const [ showMenu, setShowMenu   ]   = useState( false )
     const [ values, setValues   ]   = useState(false)
@@ -72,8 +74,13 @@ const MainApp = ( props ) => {
                     </styles.ContentSection>
 
                     <styles.ContentSection showMenu={showMenu}>
+                        <Knowledge ref={knowledgeRef} id="knowledge" animation={values.knowledge}/>
+                    </styles.ContentSection>
+
+                    <styles.ContentSection showMenu={showMenu}>
                         <Contact ref={contactRef } id="contact" animation={values.contact}/>
                     </styles.ContentSection>
+                    
 
                     {/* <styles.ContentSection showMenu={showMenu}>
                         <Technologies ref={ projectRef } id='projects' animation={ values.projects }/>

@@ -5,8 +5,7 @@ export const PgrBarContainer    = styles.div`
     flex-direction: column;
     background: none;
     height: 60px;
-    margin-left: 20px;
-    margin-top:20px;
+    
 `
 
 export const Section1           = styles.section`
@@ -20,8 +19,9 @@ export const PgrMain            = styles.div`
     background: #f1f1f1;
     margin-top:10px;
     border-radius:10px;
-    height:10px;
+    height:max-content;
     position:relative;
+    
 `
 
 export const Bar                = styles.div`

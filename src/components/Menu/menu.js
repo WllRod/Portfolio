@@ -20,6 +20,11 @@ const Menu  = React.forwardRef(( props, ref) => {
         {
             id: "experience",
             label: "Experiências",
+            icon: <Work />
+        },
+        {
+            id: "knowledge",
+            label: "Conhecimentos",
             icon: <School />
         },
         {

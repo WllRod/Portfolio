@@ -36,7 +36,7 @@ const About = React.forwardRef(( props, ref) => {
 
             var ref = imgRef.imgRef.current
             var bounding    = ref.getBoundingClientRect()
-            var left = width <= 767 ? bounding.x+5 : bounding.x + bounding.width
+            var left = width <= 767 ? bounding.x-5 : bounding.x + (bounding.width/4)
             
             return <styles.Arrow left={ left }/>
         }
@@ -44,24 +44,16 @@ const About = React.forwardRef(( props, ref) => {
     } 
 
     return(
-        <Card title={"Sobre Mim"}  id={ props.id } ref={aboutRef} animation={ props.animation || animation }>
+        <Card title={"Sobre Mim"} id={ props.id } ref={aboutRef} animation={ props.animation || animation }>
            
             <styles.CardContent>
                 <styles.ImgContainer >
                    <styles.IMG image={Perfil} ref={ imgRef }></styles.IMG>
-                    {/* <img src={Perfil} /> */}
-                    {/* <img src="https://pfpmaker.com/_nuxt/img/profile-3-1.3e702c5.png" style={{height: '125px', width: '125px', marginLeft: '30px'}} ref={imgRef} /> */}
+                    
                 </styles.ImgContainer>
                 <styles.AboutContainer >
                     <Arrow imgRef={ imgRef }/>
-                {/* {
-                        img === null ? '' :
-                        <styles.Arrow 
-                            left={ aboutRef.current.offsetLeft - 10 }
-                            
-                        >
-                        </styles.Arrow>
-                    } */}
+              
                     <styles.Section showBorder={ false }>
                         <span style={{ width: '100%', height: '100%'}}>
                         Olá, meu nome é William Rodrigues, sou desenvolvedor Full-Stack. Residente de Petrópolis, RJ. Tenho conhecimento avançado na linguagem Python e no framework Flask, e conhecimento intermediário em ReactJS e React Native. E claro, disposto a aprender sempre mais!
