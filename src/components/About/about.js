@@ -68,7 +68,7 @@ const About = React.forwardRef(( props, ref) => {
                         </div>
                     </styles.Section>
                     <styles.Section  showBorder={ true }>
-                        <section style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingLeft: '20px'}}>
+                        <section style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingLeft: '20px', paddingTop: '10px'}}>
                             <ProgressBar max={80} startAnimation={true} title={"Python"}/>
                             <ProgressBar max={60} startAnimation={true} title={"React"}/>
                             <ProgressBar max={75} startAnimation={true} title={"ADVPL"}/>
