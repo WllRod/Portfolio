@@ -186,7 +186,7 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
                                 <School style={{ fontSize: '30px', color: '#ff4c60'}}/>
                             </styles.IconDiv>
                             <styles.LocalSpan>{v.Title}</styles.LocalSpan>
-                           <div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%', gap: '25px', flexWrap: 'wrap'}}>
+                           <div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%', gap: '25px', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
                                {
                                    v.SubCards.map(( v, s ) => {
                                        return(

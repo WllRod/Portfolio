@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as styles from '../../styles/componentsStyles/assets/progressBar'
 
 function sleep(ms){
-    return new Promise( resolve => setTimeout( resolve, ms ))
+    return new Promise( resolve => setInterval( resolve, ms ))
 }
 
 const colors    = [
@@ -24,7 +24,7 @@ const ProgressBar   = ( props ) => {
             
         for( var i = width; i <= max; i++){
             setWidth( i )
-            await sleep( 5 )
+            await sleep( 1 )
         }
     }
 
@@ -48,6 +48,7 @@ const ProgressBar   = ( props ) => {
                 <styles.PgrMain>
                     
                     <styles.Bar width={ width } background={color}>
+                        A
                       { props.mini ? 
                         <span style={{ marginLeft: '15px', fontSize: '15px', height: 'max-content', color: 'black'}}>{width}%</span>
                       : ''}
