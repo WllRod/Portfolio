@@ -47,88 +47,7 @@ const Menu  = React.forwardRef(( props, ref) => {
     useEffect(() => {
         setFocus( props.active )
     }, [ props.active ])
-    // const callbackFunction = ( entries )    => {
-    //     const [ entry ] = entries
-
-    //     if( entry.isIntersecting ){
-    //         var id  = entry.target.id
-            
-    //         var tmp = {
-    //             ...focus,
-    //             [id]: true
-    //         }
-    //         setFocus( tmp )
-    //     }
-    // }
-    
-    // const options   = {
-    //     root: null,
-    //     rootMargin: '0px',
-    //     threshold: window.innerWidth <= 767 ? 0.3 : 0.3
-    // }
-
-
-    // useEffect(() => {
-    //     // if(window.performance){
-    //     //     if( performance.navigation.type === 1){
-    //     //         introRef.current.scrollIntoView()
-    //     //     }
-    //     // }
-    //     const observer  = new IntersectionObserver( callbackFunction, options )
-    //     ref.current.forEach(( k ) => {
-    //         if( k.current ) observer.observe( k.current )
-    //     })
-
-    //     return () => {
-    //         ref.current.forEach(( k ) => {
-    //             if( k.current ) observer.unobserve( k.current )
-    //         })
-    //     }
-    // }, [ ] )
-    // const scrollHandler = ( )   => {
-    //     console.log( focus )
-    //     if( refs !== null ){
-    //         const t = Object.keys( refs ).map(( k, v ) => {
-    //             if( refs[k].current !== null ){
-                    
-    //                 var bounding    = refs[k].current.getBoundingClientRect()
-    //                     if( bounding.top >= 0 && bounding.bottom <= window.innerHeight){
-    //                         var id  = refs[k].current.id
-    //                         var tmpFocus    = { ...focus }
-    //                         Object.keys( tmpFocus ).map(( k, v ) => {
-    //                             if( k !== id ){
-    //                                 tmpFocus[k] = false
-    //                             }
-    //                         })
-    //                         tmpFocus[id]    = true
-    //                         setFocus( tmpFocus )
-    //                         // setFocus( tmpFocus )
-    //                         // setFocus( {
-    //                         //     ...tmpFocus
-    //                         // } )
-    //                     }
-    //             }else{
-    //                 var tmpFocus    = { ...focus }
-    //                 Object.keys( tmpFocus ).map(( k, v ) => {
-    //                           tmpFocus[k]   = false  
-    //                 })
-    //                 setFocus( tmpFocus )
-    //             }
-                
-                
-    //         })
-    
-    //         return t
-            
-    //     }
-        
-    // }
-
-    // useEffect(() => {
-    //     window.addEventListener('scroll', scrollHandler)
-
-    //     return () => window.removeEventListener('scroll', scrollHandler)
-    // }, [ scrollHandler ])
+   
 
     const scrollToDiv   = ( id ) => {
         // refs[id].current.scrollIntoView()
@@ -155,27 +74,7 @@ const Menu  = React.forwardRef(( props, ref) => {
                     )
                 })
             }
-            {/* <styles.Button onClick={ () => scrollToDiv("intro")} focus={focus.intro}>
-               <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><Home /></section>
-               <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Home</section>
-            </styles.Button>
-            <styles.Button onClick={ () => scrollToDiv("about")} focus={focus.about}>
-               <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><Person /></section>
-               <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Sobre</section>
-            </styles.Button>
-            <styles.Button onClick={ () => scrollToDiv("experience")} focus={focus.experience}>
-               <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><School /></section>
-               <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Experiências</section>
-            </styles.Button>
-            <styles.Button onClick={ () => scrollToDiv("contact")} focus={focus.contact}>
-               <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><ChatBubble /></section>
-               <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Contato</section>
-            </styles.Button> */}
-            {/* <styles.Button onClick={ () => scrollToDiv("projects")} focus={focus.projects}>
-               <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}><Work /></section>
-               <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>Projetos</section>
-            </styles.Button> */}
-            
+           
         </div>
     )
 })

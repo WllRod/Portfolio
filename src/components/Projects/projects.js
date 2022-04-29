@@ -34,7 +34,7 @@ const Technologies  = React.forwardRef(( props, ref) => {
                 <div style={{ position: 'absolute', height: '100%', right: 0, width: '90%',  top: '-14px', borderRadius: '0 30px 30px 0', padding: '20px'}}>
                     <h1>{title}</h1>
                     <br />
-                    <span style={{ letterSpacing: '1.5px', fontSize: '1em'}}>
+                    <span style={{ letterSpacing: '1.5px', fontSize: '0.8em'}}>
                         {description}
                     </span>
                 </div>

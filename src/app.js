@@ -41,12 +41,16 @@ const MainApp = ( props ) => {
     
     const [ values, setValues   ]   = useState(false)
     const [ device, setDevice ]     = React.useState(window.innerWidth)
-    const [ showMenu, setShowMenu   ]   = useState( device > 767 ? true : false )
+    const [ showMenu, setShowMenu   ]   = useState( false )
     const observerHook    = ObserverHook( refs )
 
     useEffect(() => {
         setValues( observerHook )
     }, [ observerHook ])
+    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     
     return(
         <>

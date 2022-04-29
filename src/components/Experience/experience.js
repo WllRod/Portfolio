@@ -11,82 +11,27 @@ export const Experience = React.forwardRef(( props, ref ) => {
     const section2Ref   = useRef( null )
     const section3Ref   = useRef( null )
     const section4Ref   = useRef( null )
-    const refs  = useRef( [ section1Ref, section2Ref, section3Ref, section4Ref ] )
+
+    const refs          = useRef([])
     const observer  = ObserverHook( refs )
-    const [ values1, setValues1   ]   = useState(false)
-    const [ values2, setValues2   ]   = useState(false)
-    const [ values3, setValues3   ]   = useState(false)
-    const [ values4, setValues4   ]   = useState(false)
-    const dict  = {
-        'section1': setValues1,
-        'section2': setValues2,
-        'section3': setValues3,
-        'section4': setValues4
-    }
-
+    const [ values, setValues ] = React.useState({})
+    
     useEffect(() => {
-
-        const key   = Object.keys( observer )[0]
-        if( key in dict ){
-            dict[key]( observer[key] )
-        }
+        setValues( prevState => ({
+            ...prevState,
+            ...observer
+        }))
+        
     }, [ observer ])
 
-    var orderRef    = [
-        {
-            'id': 'section1',
-            'ref': section1Ref,
-            'values': values1
-        },
-        {
-            'id': 'section2',
-            'ref': section2Ref,
-            'values': values2
-        },
-        {
-            'id': 'section1',
-            'ref': section1Ref,
-            'values': values1
-        },
-        {
-            'id': 'section2',
-            'ref': section2Ref,
-            'values': values2
-        }
-    ]
 
-    if( window.innerWidth <= 767){
-        orderRef    = [
-            {
-                'id': 'section1',
-                'ref': section1Ref,
-                'values': values1
-            },
-            {
-                'id': 'section2',
-                'ref': section2Ref,
-                'values': values2
-            },
-            {
-                'id': 'section3',
-                'ref': section3Ref,
-                'values': values3
-            },
-            {
-                'id': 'section4',
-                'ref': section4Ref,
-                'values': values4
-            }
-        ]
-    }
-    
     const animation = AnimationHooks( props )
     return(
         <Card title={"Experiências"} animation={ props.animation || animation } ref={ ref } id={ props.id }>
             <styles.ExperienceContainer >
                 <styles.ExperienceContent>
                     <styles.SectionsContainer>
-                        <styles.Section id={ orderRef[0].id } ref={ orderRef[0].ref } animation={orderRef[0].values}>
+                        <styles.Section id={ "FAETERJ" } ref={ el => refs.current.push(el) } animation={values.FAETERJ}>
                             <styles.IconDiv>
                                 <School style={{ fontSize: '30px', color: '#ff4c60'}}/>
                             </styles.IconDiv>
@@ -94,7 +39,7 @@ export const Experience = React.forwardRef(( props, ref ) => {
                             <styles.LocalSpan>FAETERJ - Petrópolis</styles.LocalSpan>
                             <styles.DescSpan>Educação Superior em Tecnologia da Informação, cursando o 4º período.</styles.DescSpan>
                         </styles.Section>
-                        <styles.Section id={ orderRef[1].id } ref={ orderRef[1].ref } animation={orderRef[1].values}>
+                        <styles.Section id={ "FAETEC" } ref={ el => refs.current.push(el) } animation={values.FAETEC}>
                             <styles.IconDiv>
                                 <School style={{ fontSize: '30px', color: '#ff4c60'}}/>
                             </styles.IconDiv>
@@ -108,7 +53,7 @@ export const Experience = React.forwardRef(( props, ref ) => {
                 </styles.ExperienceContent>
                 <styles.ExperienceContent>
                     <styles.SectionsContainer>
-                        <styles.Section id={ orderRef[2].id } ref={ orderRef[2].ref } animation={orderRef[2].values}>
+                        <styles.Section id={ "CDA" } ref={ el => refs.current.push(el) } animation={values.CDA}>
                             <styles.IconDiv>
                                 <Work style={{ fontSize: '30px', color: '#ff4c60'}}/>
                             </styles.IconDiv>
@@ -121,7 +66,7 @@ export const Experience = React.forwardRef(( props, ref ) => {
                             </styles.DescSpan>
                         </styles.Section>
                         
-                        <styles.Section id={ orderRef[3].id } ref={ orderRef[3].ref } animation={orderRef[3].values}>
+                        <styles.Section id={ "MAC" } ref={ el => refs.current.push(el) } animation={values.MAC}>
                             <styles.IconDiv>
                                 <Work style={{ fontSize: '30px', color: '#ff4c60'}}/>
                             </styles.IconDiv>
