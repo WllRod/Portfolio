@@ -13,6 +13,7 @@ export const CardContent    = styles.div`
     @media screen and (max-width: 767px){
         &{
             flex-direction: column;
+            padding-left:0;
         }
     }
     `

@@ -12,6 +12,7 @@ export const ProjectsContainer  = styles.div`
 
     @media screen and (max-width:767px)
     {
+        padding-left:0;
         margin-left:0px;
     }
 `
