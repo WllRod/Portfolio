@@ -5,6 +5,8 @@ export const CardContent    = styles.div`
     flex-direction:row;
     height:max-content;
     width:100%;
+    
+    padding-left:150px;
     padding-top:70px;
     margin-right: 200px;
     position:relative;

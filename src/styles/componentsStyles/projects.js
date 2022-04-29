@@ -8,7 +8,8 @@ export const ProjectsContainer  = styles.div`
     gap:10px;
     width:100%;
     height:90vh;
-    
+    padding-left:150px;
+
     @media screen and (max-width:767px)
     {
         margin-left:0px;

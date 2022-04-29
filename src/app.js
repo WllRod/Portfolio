@@ -38,9 +38,10 @@ const MainApp = ( props ) => {
     const contactRef    = useRef( null )
     const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef, knowledgeRef, projectRef ])
     const modalContent  = useSelector( state => state.data )
-    const [ showMenu, setShowMenu   ]   = useState( false )
-    const [ values, setValues   ]   = useState(false)
     
+    const [ values, setValues   ]   = useState(false)
+    const [ device, setDevice ]     = React.useState(window.innerWidth)
+    const [ showMenu, setShowMenu   ]   = useState( device > 767 ? true : false )
     const observerHook    = ObserverHook( refs )
 
     useEffect(() => {

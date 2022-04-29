@@ -11,6 +11,9 @@ export const ExperienceContainer    = styles.div`
     margin-left:30px;
     letter-spacing:1px;
     gap:20px;
+    padding-left:150px;
+    width:100%;
+
     flex-wrap:wrap;
     ${ props => props.animation && `
         animation: fadeInUp 1s ease-in-out;
