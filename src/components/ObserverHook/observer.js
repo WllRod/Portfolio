@@ -2,7 +2,17 @@ import React, { useEffect } from 'react'
 
 export const ObserverHook  = ( refsArray ) => {
     const [ refsDict, setRefsDict ] = React.useState({})
-    let debounceTimeout = null
+    const [ width, setWidth ]       = React.useState(0)
+
+    React.useEffect(() => {
+        function resizeEvent(){
+            setWidth( window.innerWidth )
+        }
+
+        window.addEventListener('resize', resizeEvent)
+
+        return ( ) => window.removeEventListener('resize', resizeEvent)
+    })
     
     useEffect(() => {
         
@@ -21,7 +31,7 @@ export const ObserverHook  = ( refsArray ) => {
                 {
                     root: null,
                     rootMargin: '0px',
-                    threshold: 0.1
+                    threshold: width > 700 ? 0.3 : 0.1
                 })
 
                 if( k.current ){

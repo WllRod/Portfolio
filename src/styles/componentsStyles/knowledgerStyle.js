@@ -10,6 +10,7 @@ export const KnowledgeCards = styles.div`
     
     padding:5px;
     border-radius:25px;
+    
     & > * {
         margin-top: 10px;
     }

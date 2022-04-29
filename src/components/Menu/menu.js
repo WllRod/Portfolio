@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as styles from '../../styles/componentsStyles/menu'
 import { Home, Person, School, Work, ChatBubble } from '@material-ui/icons'
-
+import { FaLayerGroup } from 'react-icons/fa'
 const Menu  = React.forwardRef(( props, ref) => {
     
     const [ refs, setRefs ] = useState( null )
@@ -26,6 +26,11 @@ const Menu  = React.forwardRef(( props, ref) => {
             id: "knowledge",
             label: "Conhecimentos",
             icon: <School />
+        },
+        {
+            id: "project",
+            label: "Projetos",
+            icon: <FaLayerGroup style={{ fontSize: '20px' }}/>
         },
         {
             id: "contact",

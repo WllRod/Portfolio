@@ -10,7 +10,7 @@ export const ExperienceContainer    = styles.div`
     padding-top:70px;
     margin-left:30px;
     letter-spacing:1px;
-    gap:10px;
+    gap:20px;
     flex-wrap:wrap;
     ${ props => props.animation && `
         animation: fadeInUp 1s ease-in-out;
@@ -41,7 +41,7 @@ export const ExperienceContent  = styles.section`
         display: flex;
         background: #302f4e!important;
         flex-direction:row;
-        width:33.5vw;
+        width:33vw;
         height:auto;
         padding:20px;
         padding-top:0px;
@@ -55,6 +55,9 @@ export const ExperienceContent  = styles.section`
         @media screen and ( min-width:768px ) and ( max-width:1023px){
             width:50%;
         }
+        transition: 0.5s;
+        transform: translateY(0);
+        
 `
 
 export const SectionsContainer    = styles.div`
