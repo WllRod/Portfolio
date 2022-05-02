@@ -1,12 +1,20 @@
 import React, { useEffect } from 'react'
 import { AnimationHooks } from '../animationHooks/animationHook'
 import Card from '../Card/card'
-import * as styles from '../../styles/componentsStyles/projects'
+import * as s from '../../styles/componentsStyles/projects'
 import { projectsData } from './projectsData'
+import { IconDiv } from '../../styles/componentsStyles/experience'
+import { School, Work } from '@material-ui/icons'
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
+import { IconButton } from '@material-ui/core'
+
+import { ArrowDownwardOutlined, ArrowUpwardOutlined, DragHandle } from '@material-ui/icons'
 
 const Technologies  = React.forwardRef(( props, ref) => {
     const [ animation, setAnimation ] = React.useState( false )
     const [ isVisible, setVisible   ]   = React.useState({})
+    const [ open, setOpen ]             = React.useState( false )
+    const aaa = React.useRef(null)
     useEffect(() => {
         if( props.animation && !(animation)){
             setAnimation( props.animation )
@@ -16,62 +24,74 @@ const Technologies  = React.forwardRef(( props, ref) => {
 
     const HoverContent = ({ github, redirect, type, title, description }) => {
         return(
-            <styles.HoverContainer>
-                <styles.Hover visible={isVisible} />
-                    
+            <>
                 <div style={{ position: 'absolute', left: 0, top: 0, height: '100%', width: 'max-content', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                    <div style={{ background: '#ff4c60', width: '100%',  display: 'flex', flexDirection: 'column', padding: '15px', borderRadius: '0 30px 30px 0', gap: '10px'}}>
+                    <div style={{ background: '#ff4c60', width: '100%',  display: 'flex', flexDirection: 'column', padding: '15px', borderRadius: '0 30px 30px 0', gap: '10px', zIndex:'2'}}>
                         
                         {github}
                         {redirect}
                         
                     </div>
                 </div>
-                <styles.TypeOfProject>
+                <s.TypeOfProject>
                     {type}
-                </styles.TypeOfProject>
+                </s.TypeOfProject>
 
                 <div style={{ position: 'absolute', height: '100%', right: 0, width: '90%',  top: '-14px', borderRadius: '0 30px 30px 0', padding: '20px'}}>
-                    <h1>{title}</h1>
+                    
                     <br />
-                    <span style={{ letterSpacing: '1.5px', fontSize: '0.8em'}}>
+                    <s.Description>
                         {description}
-                    </span>
+                    </s.Description>
                 </div>
-            </styles.HoverContainer>
+            </>
         )
     }
+
+    
     return(
         <Card title={"Projetos"}  id={ props.id } ref={ref} animation={ props.animation || animation }>
-            <styles.ProjectsContainer>
+            <s.ProjectsContainer>
                 {
                     projectsData.map(( v, i ) => {
                         return(
-                            <styles.ProjectsCardContainer>
-                                <styles.ProjectsCard 
-                                    url={"https://cda-teste.s3.amazonaws.com/gorilla_project_01.png"}
-                                    onMouseEnter={() => setVisible( prevState => ({ ...prevState, [v.id]: true}) )}
-                                    onMouseLeave={() => setVisible( prevState => ({ ...prevState, [v.id]: false}) )}
-                                    onClick={() => setVisible( prevState => ({ ...prevState, [v.id]: !isVisible[v.id]}))}
-                                    id={v.id}
-                                >
-                                    { isVisible[v.id] ?   <HoverContent 
-                                                        redirect={v.redirect} 
-                                                        github={v.github}
-                                                        type={v.typeOfProject}
-                                                        title={v.title}
-                                                        description={v.description}
-                                                    /> 
-                                                : null }
+                            <s.ProjectsCard>
+                                <s.TypeOfProject>
+                                        {v.typeOfProject}
+                                </s.TypeOfProject>
+                                <s.ImgDiv url={"https://cda-teste.s3.amazonaws.com/gorilla_project_01.png"} />
+                                <s.ExpandInformations open={open} ref={aaa}>
+                                    <div style={{ display: 'flex', width: '100%', height: 'max-content', justifyContent: 'center'}}>
+                                        <IconButton onClick={() => setOpen(!open)} style={{ width: 'max-content', height: 'max-content'}}>
+                                            <DragHandle style={{fontSize: '30px', color: 'white'}}/>
+                                        </IconButton>
+                                    </div>
+                                    <s.ProjectTitle>{v.title}</s.ProjectTitle>
                                     
-                                </styles.ProjectsCard>
-                                <styles.ProjectTitle>{v.title}</styles.ProjectTitle>
-                            </styles.ProjectsCardContainer>
+                                    {
+                                        open ? 
+                                            <s.ExpandContainer open={open}>
+                            
+                                                
+
+                                                <s.Description>
+                                                        {v.description}
+                                                </s.Description>
+                                                <div style={{ background: '#ff4c60', display: 'flex', flexDirection: 'row', position: 'absolute', bottom: 0, width: '100%', height: 'max-content', alignItems: 'center', justifyContent: 'center', padding: '10px', borderRadius: '0 0 30px 30px', left:0}}>
+                                                    {v.github}
+                                                    {v.redirect}
+                                                </div>
+                                            </s.ExpandContainer>
+                                        : ''
+                                    }
+                                </s.ExpandInformations>
+                                
+                            </s.ProjectsCard>
                         )
                     })
                 }
                 
-            </styles.ProjectsContainer>
+            </s.ProjectsContainer>
             
         </Card>
     )

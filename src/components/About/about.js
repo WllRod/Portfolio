@@ -49,7 +49,6 @@ const About = React.forwardRef(( props, ref) => {
             <styles.CardContent>
                 <styles.ImgContainer >
                    <styles.IMG image={Perfil} ref={ imgRef }></styles.IMG>
-                    
                 </styles.ImgContainer>
                 <styles.AboutContainer >
                     <Arrow imgRef={ imgRef }/>

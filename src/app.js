@@ -48,9 +48,9 @@ const MainApp = ( props ) => {
         setValues( observerHook )
     }, [ observerHook ])
     
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    // }, [])
     
     return(
         <>

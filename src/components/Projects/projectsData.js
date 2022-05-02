@@ -21,9 +21,6 @@ export const projectsData = [
                 
                 <br />
                 <br />
-                <br />
-                &emsp;Credenciais para teste.
-                <br />
                 <p>&emsp;Usuário: admin</p>
                 <p>&emsp;Senha: admin</p>
             </p>
@@ -31,7 +28,7 @@ export const projectsData = [
         github: null,
         redirect: 
             <a href="http://petrosilk-teste.s3-website-us-east-1.amazonaws.com/app" target={"_blank"}>
-                <FaExternalLinkAlt style={{color: 'white', fontSize: '15px'}}/>
+                <FaExternalLinkAlt style={{color: 'white', fontSize: '25px'}}/>
             </a>
     }
 ]
