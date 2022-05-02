@@ -169,7 +169,7 @@ export const TypeOfProject = styles.div`
 
 export const ProjectTitle = styles.div`
     width: 100%;
-    height: 15%;
+    height: 10%;
     display:flex;
     align-items:center;
     justify-content:center;
