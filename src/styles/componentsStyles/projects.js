@@ -26,12 +26,12 @@ export const ProjectsCard   = styles.div`
     width:30vw;
     height:65vh;
     border-radius:30px;
-    // @media screen and ( max-width: 767px ){
-    //     width: 100%;
-    //     height:50vh;
-    //     margin-left:0px;
-    //     margin-top:10px;
-    // }
+    @media screen and ( max-width: 767px ){
+        width: 100%;
+        height:50vh;
+        margin-left:0px;
+        margin-top:10px;
+    }
 `
 export const ImgDiv = styles.div`
     height: 100%;
