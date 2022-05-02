@@ -10,6 +10,7 @@ export const ProjectsContainer  = styles.div`
     height:max-content;
     padding-left:150px;
     flex-wrap:wrap;
+    position:relative;
     @media screen and (max-width:767px)
     {
         padding-left:0;
@@ -22,15 +23,15 @@ export const ProjectsCard   = styles.div`
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    width: 33vw;
+    width:30vw;
     height:65vh;
     border-radius:30px;
-    @media screen and ( max-width: 767px ){
-        width: 100%;
-        height:50vh;
-        margin-left:0px;
-        margin-top:10px;
-    }
+    // @media screen and ( max-width: 767px ){
+    //     width: 100%;
+    //     height:50vh;
+    //     margin-left:0px;
+    //     margin-top:10px;
+    // }
 `
 export const ImgDiv = styles.div`
     height: 100%;
@@ -93,7 +94,7 @@ export const Description    = styles.span`
     }
     @media screen and (min-width:1024px)
     {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
 `
