@@ -7,10 +7,8 @@ import About from './components/About/about'
 import Experience from './components/Experience/experience'
 import Menu from './components/Menu/menu'
 import { Divide as Hamburger } from 'hamburger-react'
-import Technologies from './components/Projects/projects'
 import { ObserverHook } from './components/ObserverHook/observer'
 import Contact from './components/Contact/contact'
-import Button from './components/Assets/button'
 import { useSelector } from 'react-redux'
 import Knowledge from './components/Knowledges'
 import Projects from './components/Projects/projects'
@@ -40,7 +38,6 @@ const MainApp = ( props ) => {
     const modalContent  = useSelector( state => state.data )
     
     const [ values, setValues   ]   = useState(false)
-    const [ device, setDevice ]     = React.useState(window.innerWidth)
     const [ showMenu, setShowMenu   ]   = useState( false )
     const observerHook    = ObserverHook( refs )
 

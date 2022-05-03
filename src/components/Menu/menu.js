@@ -67,7 +67,7 @@ const Menu  = React.forwardRef(( props, ref) => {
             {
                 menuOptions.map(( k, v ) => {
                     return(
-                        <styles.Button onClick={ () => scrollToDiv(k.id)} focus={focus[k.id]}>
+                        <styles.Button onClick={ () => scrollToDiv(k.id)} focus={focus[k.id]} key={k.label}>
                             <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}>{k.icon}</section>
                             <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>{k.label}</section>
                         </styles.Button>

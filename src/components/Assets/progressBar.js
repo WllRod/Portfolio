@@ -88,7 +88,7 @@ const ProgressBar   = ( props ) => {
     
     return(
             
-        <styles.PgrBarContainer>
+        <styles.PgrBarContainer {...props}>
             <styles.Section1>
                 <span>{ title }</span>
                 { props.mini ? '' : <span>{width}%</span>}

@@ -85,13 +85,10 @@ const About = React.forwardRef(( props, ref) => {
                     </styles.Section>
                     <styles.Section  showBorder={ true }>
                         <section style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingLeft: '20px', paddingTop: '10px'}}>
-                            {/* <ProgressBar max={80} startAnimation={true} title={"Python"}/>
-                            <ProgressBar max={60} startAnimation={true} title={"React"}/>
-                            <ProgressBar max={75} startAnimation={true} title={"ADVPL"}/>
-                            <ProgressBar max={75} startAnimation={true} title={"SQL"}/> */}
+                           
                             {
                                 abilities.map(( v, i ) => {
-                                    return <ProgressBar max={v.max} startAnimation={animation} title={v.name} /> 
+                                    return <ProgressBar max={v.max} startAnimation={animation} title={v.name} key={i}/> 
                                 })
                             }
                         </section>

@@ -11,6 +11,20 @@ export default createGlobalStyle`
     text-decoration:none;
     
   }
+  *::-webkit-scrollbar{
+    width: 5px;
+}
+
+*::-webkit-scrollbar-thumb{
+    background-color: #ffd15c;
+    border-radius: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-track{
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
   body {
     -webkit-font-smoothing: antialiased !important;
     background: #353353;

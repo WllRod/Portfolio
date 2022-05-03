@@ -27,7 +27,7 @@ const Technologies  = React.forwardRef(( props, ref) => {
         const [entry] = entries
         
         let id = entry.target.id
-        console.log( id )
+
         if( entry.isIntersecting )
         {
             if( id === "firstRef")
@@ -47,8 +47,8 @@ const Technologies  = React.forwardRef(( props, ref) => {
 
     const options = {
         root: null,
-        rootMargin: '0px',
-        threshold: 1.0
+        rootMargin: '10px',
+        threshold: 0.99
     }
 
     useEffect(() => {
@@ -69,12 +69,10 @@ const Technologies  = React.forwardRef(( props, ref) => {
 
     const onClickNext = () => {
 
-        setLastElIsIsVisible(true)
         if( containerRef.current && firstRef.current )
         {
             var elBounding = firstRef.current.getBoundingClientRect()
             let scrollTo    = elBounding.width
-            console.log( elBounding)
             if( !considerPadding ) 
             {
                 scrollTo = scrollTo + 150
@@ -97,7 +95,9 @@ const Technologies  = React.forwardRef(( props, ref) => {
     }
 
     const NextButton = ( ) => {
-        if(firstElIsVisible)
+
+        console.log( lastElIsIsVisible)
+        if(firstElIsVisible && !lastElIsIsVisible)
         {
             return(
                 <IconButton style={{ position: 'fixed', right: '40px', zIndex: '5000', top: '50%', background: '#ff4c60' }} onClick={onClickNext}>
@@ -110,7 +110,7 @@ const Technologies  = React.forwardRef(( props, ref) => {
     }
 
     const PrevButton = ( ) => {
-        if(lastElIsIsVisible)
+        if(!firstElIsVisible)
         {
             return(
                 <IconButton style={{ position: 'fixed', left: '100px', zIndex: '5000', top: '50%', background: '#ff4c60' }} onClick={onClickBack}>
@@ -151,6 +151,8 @@ const Technologies  = React.forwardRef(( props, ref) => {
                 <BrowserView>
                     <NextButton />
                     <PrevButton />
+                    {/* <NextButton />
+                    <PrevButton /> */}
                 </BrowserView>
                 {
                     projectsData.map(( v, i ) => {
@@ -160,7 +162,7 @@ const Technologies  = React.forwardRef(( props, ref) => {
                         github={v.github}
                         redirect={v.redirect}
                         type={v.typeOfProject}
-                        url={"https://cda-teste.s3.amazonaws.com/gorilla_project_01.png"}
+                        url={v.url}
                         
                     />
                     if( i === 0)

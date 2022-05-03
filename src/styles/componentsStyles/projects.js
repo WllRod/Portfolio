@@ -38,10 +38,15 @@ export const ProjectsCard   = styles.div`
 
     @media screen and (min-width: 768px) and (max-width: 1023px)
     {
-        min-width: 100%;
-        height:50vh;
+        min-width: 40vw;
+        height:65vh;
         margin-left:0px;
         margin-top:10px;
+    }
+
+    @media screen and (min-width:1024px)
+    {
+        min-width:33vw;
     }
 `
 export const ImgDiv = styles.div`
@@ -147,14 +152,14 @@ export const ToolBarChild = styles.div`
 export const TypeOfProject = styles.div`
     position:absolute;
     color:white;
-    right: 20px;
+    right: 25px;
     background: #ff4c60;
     font-size:1.2rem;
     letter-spacing:1px;
     width:max-content;
     text-align:center;
     height:max-content;
-    top:0;
+    top:0px;
     padding:10px;
     z-index:100;
     border-radius: 0 0 30px 30px;
@@ -180,7 +185,13 @@ export const ProjectTitle = styles.span`
     
     color:white;
     font-weight:700;
-    font-size:30px;
+    font-size:1rem;
+    padding:0px;
+    margin-top:15px;
+    @media screen and (max-width:767px)
+    {
+        margin-top:0px;
+    }
 `
 export const ExpandInformations = styles.div`
     width: 100%;

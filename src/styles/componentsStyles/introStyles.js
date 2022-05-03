@@ -6,7 +6,7 @@ export const IntroContainer = styles.div`
     align-items: center;
     margin-top: 5%;
     height: auto;
-
+    min-height:650px;
     & > * {
         margin-top: 35px;
     }
