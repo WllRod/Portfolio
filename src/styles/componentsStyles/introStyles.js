@@ -6,7 +6,7 @@ export const IntroContainer = styles.div`
     align-items: center;
     margin-top: 5%;
     height: auto;
-
+    min-height:650px;
     & > * {
         margin-top: 35px;
     }
@@ -56,8 +56,12 @@ export const ScrollDownCont = styles.div`
     color: white;
     font-size: 15px;
     position: absolute;
-    bottom: 23px;
-    margin-bottom: 60px;
+    bottom: 15px;
+    
+    @media screen and (max-width:767px)
+    {
+        bottom:120px;
+    }
 `
 export const ScrollDown = styles.div`
     margin-top: 20px;

@@ -5,12 +5,15 @@ export const CardContent    = styles.div`
     flex-direction:row;
     height:max-content;
     width:100%;
+    
+    padding-left:150px;
     padding-top:70px;
     margin-right: 200px;
     position:relative;
     @media screen and (max-width: 767px){
         &{
             flex-direction: column;
+            padding-left:0;
         }
     }
     `
@@ -79,8 +82,8 @@ export const ImgContainer   = styles.div`
     }
 `
 export const IMG    = styles.div`
-    width:110px;
-    height:110px;
+    width:80px;
+    height:80px;
     border-radius:50%;
     background-image: url(${ props => props.image});
     background-size:cover;

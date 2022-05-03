@@ -45,7 +45,7 @@ export const MenuSection    = styles.section`
 
 export const ContentSection = styles.section`
     width: 100%;
-    height: auto;
+    height: max-content;
     min-height:100vh;
     display:flex;
     flex-direction: column;

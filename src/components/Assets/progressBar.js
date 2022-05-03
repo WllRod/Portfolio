@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import * as styles from '../../styles/componentsStyles/assets/progressBar'
 
 function sleep(ms){
@@ -19,30 +19,76 @@ const ProgressBar   = ( props ) => {
     const max       = props.max
     const animation = props.startAnimation
     const title     = props.title
-    let debounce = null
+    let timer = null
+    // let timer = setInterval(() => { setWidth( width + 1 ); console.log( width ) }, 100)
 
-    useEffect(() => {
-        if( animation ){
+    // function Increment()
+    // {
+    //     if( width < max)
+    //     {
+    //         let tmp = width
             
-            if( width <= max){
-                debounce = setTimeout(() => {
-                    let tmp = width
-                    tmp++
-                    setWidth( tmp )
-                }, 10)
-            }else{
-                debounce = clearTimeout(debounce)
-            }
-        }
-    }, [ animation, width ])
+    //         console.log( width )
+    //     }
 
+    //     if( width === max )
+    //     {
+    //         clearInterval( timer )
+    //     }
+
+    // }
+    // useEffect(() => {
+    //     if( animation ){
+            
+    //         if( width <= max){
+    //             debounce = setTimeout(() => {
+    //                 let tmp = width
+    //                 tmp++
+    //                 setWidth( tmp )
+    //             }, 10)
+    //         }else{
+    //             debounce = clearTimeout(debounce)
+    //         }
+    //     }
+    // }, [ animation, width ])
+    function counter(){
+        if( width < max )
+        {
+            setWidth(width+1)
+        }
+        setInterval(1000)
+    }
     useEffect(() => {
         setColor( colors[Math.floor(Math.random()*colors.length)] )
-    }, [])
+    }, [ ])
+    
+    // useEffect(() => {
+        
+    //     const timer = window.setInterval(() => {
+    //         if( width < max)
+    //         {
+    //             console.log(max, width)
+    //             setWidth(prevState => prevState + 1)
+    //         }
+    //     }, 10 )
+
+    //     if( width === max)
+    //     {
+    //         return () => window.clearInterval( timer )
+    //     }
+        
+    // }, [])
+
+    useEffect(() => {
+        if( width < max && props.startAnimation)
+        {
+            setTimeout(() => setWidth(prevState => prevState + 1), 10 / 60)
+        }
+    }, [ width, props.startAnimation ])
     
     return(
             
-        <styles.PgrBarContainer>
+        <styles.PgrBarContainer {...props}>
             <styles.Section1>
                 <span>{ title }</span>
                 { props.mini ? '' : <span>{width}%</span>}
@@ -61,4 +107,4 @@ const ProgressBar   = ( props ) => {
     )
 }
 
-export default ProgressBar
+export default memo(ProgressBar)

@@ -29,7 +29,7 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
                 {
                     Data.map(( v, i ) => {
                         return(
-                            <styles.ExperienceContent animation={values[i]} id={i} ref={el => refs.current[i] = el}>
+                            <styles.ExperienceContent animation={values[i]} ref={el => refs.current[i] = el} id={i} intersection={true}>
                     <styles.SectionsContainer>
                         <styles.Section animation={true}>
                             <styles.IconDiv>
@@ -47,7 +47,7 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
                                                 }}/>
                                                 <span style={{ fontWeight: '500', fontSize: '1rem'}}>{v.Title}</span>
                                                 <section style={ { width: '100%', height: 'max-content'}}>
-                                                    <ProgressBar max={v.Width} startAnimation={values[i]} mini={true}/>
+                                                    <ProgressBar max={v.Width} startAnimation={values[s]} mini={true}/>
                                                 </section>
                                             </Content>
                                         </KnowledgeCards>

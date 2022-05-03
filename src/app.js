@@ -7,12 +7,11 @@ import About from './components/About/about'
 import Experience from './components/Experience/experience'
 import Menu from './components/Menu/menu'
 import { Divide as Hamburger } from 'hamburger-react'
-import Technologies from './components/Projects/projects'
 import { ObserverHook } from './components/ObserverHook/observer'
 import Contact from './components/Contact/contact'
-import Button from './components/Assets/button'
 import { useSelector } from 'react-redux'
 import Knowledge from './components/Knowledges'
+import Projects from './components/Projects/projects'
 
 const Modal = ( props ) => {
     
@@ -35,16 +34,20 @@ const MainApp = ( props ) => {
     const projectRef    = useRef( null )
     const knowledgeRef     = useRef( null )
     const contactRef    = useRef( null )
-    const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef, knowledgeRef ])
+    const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef, knowledgeRef, projectRef ])
     const modalContent  = useSelector( state => state.data )
-    const [ showMenu, setShowMenu   ]   = useState( false )
-    const [ values, setValues   ]   = useState(false)
     
+    const [ values, setValues   ]   = useState(false)
+    const [ showMenu, setShowMenu   ]   = useState( false )
     const observerHook    = ObserverHook( refs )
 
     useEffect(() => {
         setValues( observerHook )
     }, [ observerHook ])
+    
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    // }, [])
     
     return(
         <>
@@ -75,6 +78,10 @@ const MainApp = ( props ) => {
 
                     <styles.ContentSection showMenu={showMenu}>
                         <Knowledge ref={knowledgeRef} id="knowledge" animation={values.knowledge}/>
+                    </styles.ContentSection>
+
+                    <styles.ContentSection showMenu={showMenu}>
+                        <Projects ref={projectRef } id="project" animation={values.project} />
                     </styles.ContentSection>
 
                     <styles.ContentSection showMenu={showMenu}>
