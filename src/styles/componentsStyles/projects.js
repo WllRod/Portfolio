@@ -9,9 +9,11 @@ export const ProjectsContainer  = styles.div`
     width:100%;
     height:max-content;
     padding-left:150px;
-    flex-wrap:wrap;
+    overflow-x: scroll;
+    overflow:hidden;
+    scroll-behavior:smooth;
     position:relative;
-    @media screen and (max-width:767px)
+    @media screen and (min-width:0px) and (max-width:1023px)
     {
         padding-left:0;
         margin-left:0px;
@@ -24,10 +26,19 @@ export const ProjectsCard   = styles.div`
     flex-direction:column;
     justify-content:flex-end;
     width:30vw;
+    min-width:30vw;
     height:65vh;
     border-radius:30px;
     @media screen and ( max-width: 767px ){
-        width: 100%;
+        min-width: 100%;
+        height:50vh;
+        margin-left:0px;
+        margin-top:10px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px)
+    {
+        min-width: 100%;
         height:50vh;
         margin-left:0px;
         margin-top:10px;
@@ -73,8 +84,6 @@ export const Hover  = styles.div`
         opacity:1;
         border-radius:30px;
         box-shadow:10px 0px 10px 10px #353353;
-        
-        
     }
 `
 
@@ -90,11 +99,11 @@ export const Description    = styles.span`
     
     @media screen and (max-width: 768px)
     {
-        font-size:0.7rem;
+        font-size:2.9vw;
     }
     @media screen and (min-width:1024px)
     {
-        font-size: 1rem;
+        font-size: 0.9vw;
     }
     
 `
@@ -167,16 +176,11 @@ export const TypeOfProject = styles.div`
 
 `
 
-export const ProjectTitle = styles.div`
-    width: 100%;
-    height: 10%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+export const ProjectTitle = styles.span`
+    
     color:white;
     font-weight:700;
     font-size:30px;
-    padding: 15px;
 `
 export const ExpandInformations = styles.div`
     width: 100%;
@@ -188,8 +192,11 @@ export const ExpandInformations = styles.div`
     position:absolute;
     bottom:0;
     display:flex;
-    flex-direction:column;
+    
     border-radius: ${ props => props.open ? '30px' : '0 0 30px 30px'};
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
 `
 export const ExpandContainer = styles.div`
     width:100%;
@@ -210,4 +217,41 @@ export const ExpandContainer = styles.div`
             }
         }
     `}
+`
+
+export const ScrollLeft = styles.div`
+    margin-top: 20px;
+    width: 25px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 5px;
+    position: relative;
+    &::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        top: 40%;
+        left: 5px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 1;
+        animation: wheel 2s infinite;
+        -webkit-animation: wheel 2s infinite;
+    }
+    }
+
+    @keyframes wheel {
+    to {
+        opacity: 0;
+        left: 10px;
+    }
+    }
+
+    @-webkit-keyframes wheel {
+    to {
+        opacity: 0;
+        left: 10px;
+    }
+    }
 `

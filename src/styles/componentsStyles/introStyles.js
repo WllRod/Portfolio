@@ -56,8 +56,12 @@ export const ScrollDownCont = styles.div`
     color: white;
     font-size: 15px;
     position: absolute;
-    bottom: 23px;
-    margin-bottom: 60px;
+    bottom: 15px;
+    
+    @media screen and (max-width:767px)
+    {
+        bottom:120px;
+    }
 `
 export const ScrollDown = styles.div`
     margin-top: 20px;

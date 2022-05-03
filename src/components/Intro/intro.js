@@ -64,7 +64,7 @@ const Intro = React.forwardRef(( props, ref ) => {
 
     return(
         <styles.IntroContainer id={ props.id } ref={ ref }>
-            <img src={Perfil} style={{ height: '130px', width: '130px',borderRadius: '50%'}}/>
+            <img src={Perfil} style={{ height: '100px', width: '100px',borderRadius: '50%'}}/>
             <styles.NameStyle>William Rodrigues</styles.NameStyle>
             { animation ? <styles.typewriterH2>{ fraseC }<span className='blinker' style={{ marginLeft: '5px'}}>|</span></styles.typewriterH2> : ''}
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between',  width: '125px'}}>

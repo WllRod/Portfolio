@@ -82,8 +82,8 @@ export const ImgContainer   = styles.div`
     }
 `
 export const IMG    = styles.div`
-    width:110px;
-    height:110px;
+    width:80px;
+    height:80px;
     border-radius:50%;
     background-image: url(${ props => props.image});
     background-size:cover;

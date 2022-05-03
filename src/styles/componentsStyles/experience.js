@@ -56,8 +56,12 @@ export const ExperienceContent  = styles.section`
         @media screen and ( max-width: 767px ){
             width: 100%;
         }
-        @media screen and ( min-width:768px ) and ( max-width:1023px){
-            width:50%;
+        @media screen and ( min-width:768px ){
+            width:100%;
+        }
+        @media screen and (min-width:1200px)
+        {
+            width:33vw;
         }
         transition: 0.5s;
         transform: translateY(0);

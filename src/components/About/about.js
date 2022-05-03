@@ -12,7 +12,24 @@ const About = React.forwardRef(( props, ref) => {
     const testeRef          = useRef( null )
     const [ img, setImg]    = useState( null )
     const animation         = AnimationHooks( props )
-
+    let abilities           = [
+        {
+            name: "Python",
+            max: 80            
+        },
+        {
+            name: "React",
+            max: 60
+        },
+        {
+            name: "ADVPL",
+            max: 75
+        },
+        {
+            name: "SQL",
+            max: 75
+        }
+    ]
     useEffect(() => {
         if( testeRef ){
             setImg( testeRef.current )
@@ -36,7 +53,7 @@ const About = React.forwardRef(( props, ref) => {
 
             var ref = imgRef.imgRef.current
             var bounding    = ref.getBoundingClientRect()
-            var left = width <= 767 ? bounding.x-5 : bounding.x + (bounding.width/4)
+            var left = width <= 767 ? bounding.x-5 : bounding.x 
             
             return <styles.Arrow left={ left }/>
         }
@@ -68,10 +85,15 @@ const About = React.forwardRef(( props, ref) => {
                     </styles.Section>
                     <styles.Section  showBorder={ true }>
                         <section style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingLeft: '20px', paddingTop: '10px'}}>
-                            <ProgressBar max={80} startAnimation={true} title={"Python"}/>
+                            {/* <ProgressBar max={80} startAnimation={true} title={"Python"}/>
                             <ProgressBar max={60} startAnimation={true} title={"React"}/>
                             <ProgressBar max={75} startAnimation={true} title={"ADVPL"}/>
-                            <ProgressBar max={75} startAnimation={true} title={"SQL"}/>
+                            <ProgressBar max={75} startAnimation={true} title={"SQL"}/> */}
+                            {
+                                abilities.map(( v, i ) => {
+                                    return <ProgressBar max={v.max} startAnimation={animation} title={v.name} /> 
+                                })
+                            }
                         </section>
                         
                     </styles.Section>
