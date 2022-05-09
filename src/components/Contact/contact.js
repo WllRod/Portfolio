@@ -50,11 +50,15 @@ const Contact   = React.forwardRef(( props, ref) => {
             message: inputs.message
         };
 
-        clearInputs()
+        
 
         emailjs.send(SERVICE_ID, TEMPLATE_ID, data, USER_ID)
             .then((result) => {
                 dispatch({ type: 'SHOW_MODAL', Component: <ModalContent />});
+                clearInputs()
+            })
+            .catch(function(err){
+                alert(err)
             })
             
     }
