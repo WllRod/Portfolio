@@ -31,7 +31,7 @@ export const ObserverHook  = ( refsArray ) => {
                 {
                     root: null,
                     rootMargin: '0px',
-                    threshold: width > 700 ? 0.3 : 0.1
+                    threshold: [0.3, 0.1]
                 })
 
                 if( k.current ){
