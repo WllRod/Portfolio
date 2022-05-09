@@ -47,7 +47,7 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
                                                 }}/>
                                                 <span style={{ fontWeight: '500', fontSize: '1rem'}}>{v.Title}</span>
                                                 <section style={ { width: '100%', height: 'max-content'}}>
-                                                    <ProgressBar max={v.Width} startAnimation={values[s]} mini={true}/>
+                                                    <ProgressBar max={v.Width} startAnimation={values[i]} mini={true}/>
                                                 </section>
                                             </Content>
                                         </KnowledgeCards>
