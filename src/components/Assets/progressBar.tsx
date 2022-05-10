@@ -13,12 +13,19 @@ const colors    = [
     "rgb(40, 167, 69)"
 ]
 
-const ProgressBar   = ( props ) => {
+
+interface Props{
+    
+    max: number,
+    animation: boolean,
+    title: string,
+    mini?: boolean
+}
+
+const ProgressBar: React.FC<Props> = ({ max, animation, title, mini, ...props }) => {
     const [ width, setWidth ]               = useState(0)
     const [ color, setColor ]               = useState( colors[0] )
-    const max       = props.max
-    const animation = props.startAnimation
-    const title     = props.title
+    const startAnimation = animation
     let timer = null
     // let timer = setInterval(() => { setWidth( width + 1 ); console.log( width ) }, 100)
 
@@ -51,13 +58,7 @@ const ProgressBar   = ( props ) => {
     //         }
     //     }
     // }, [ animation, width ])
-    function counter(){
-        if( width < max )
-        {
-            setWidth(width+1)
-        }
-        setInterval(1000)
-    }
+    
     useEffect(() => {
         setColor( colors[Math.floor(Math.random()*colors.length)] )
     }, [ ])
@@ -80,24 +81,24 @@ const ProgressBar   = ( props ) => {
     // }, [])
 
     useEffect(() => {
-        if( width < max && props.startAnimation)
+        if( width < max && startAnimation)
         {
             setTimeout(() => setWidth(prevState => prevState + 1), 10 / 60)
         }
-    }, [ width, props.startAnimation ])
+    }, [ width, startAnimation ])
     
     return(
             
         <styles.PgrBarContainer {...props}>
             <styles.Section1>
                 <span>{ title }</span>
-                { props.mini ? '' : <span>{width}%</span>}
+                { mini ? '' : <span>{width}%</span>}
             </styles.Section1>
                 <styles.PgrMain>
                     
                     <styles.Bar width={ width } background={color}>
                         A
-                      { props.mini ? 
+                      { mini ? 
                         <span style={{ marginLeft: '15px', fontSize: '15px', height: 'max-content', color: 'black'}}>{width}%</span>
                       : ''}
                     </styles.Bar>

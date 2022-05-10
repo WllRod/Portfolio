@@ -1,17 +1,29 @@
 import React, { useRef, useEffect, useState } from 'react'
-import Card from '../Card/card'
 import * as styles from '../../styles/componentsStyles/about'
 import Button from '../Assets/button'
 import ProgressBar from '../Assets/progressBar'
 import { AnimationHooks } from '../animationHooks/animationHook'
 import Perfil from '../../assets/perfil.png'
+import Card from '../Card/card'
 
-const About = React.forwardRef(( props, ref) => {
-    const aboutRef          = ref  
+interface Props {
+    title?: string,
+    id?: string,
+    animation?: boolean
+}
+
+const About = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
+    console.log( props )
+    // return(
+    //     <div ref={ref}>
+    //         TESTE
+    //     </div>
+    // )
+    // const aboutRef          = ref  
     const imgRef            = useRef( null )
     const testeRef          = useRef( null )
     const [ img, setImg]    = useState( null )
-    const animation         = AnimationHooks( props )
+    const animation         = AnimationHooks( props.animation )
     let abilities           = [
         {
             name: "Python",
@@ -61,7 +73,7 @@ const About = React.forwardRef(( props, ref) => {
     } 
 
     return(
-        <Card title={"Sobre Mim"} id={ props.id } ref={aboutRef} animation={ props.animation || animation }>
+        <Card title={"Sobre Mim"} id={ props.id } ref={ref} animation={ true }>
            
             <styles.CardContent>
                 <styles.ImgContainer >
@@ -88,7 +100,7 @@ const About = React.forwardRef(( props, ref) => {
                            
                             {
                                 abilities.map(( v, i ) => {
-                                    return <ProgressBar max={v.max} startAnimation={animation} title={v.name} key={i}/> 
+                                    return <ProgressBar max={v.max} animation={animation} title={v.name} key={i}/> 
                                 })
                             }
                         </section>
