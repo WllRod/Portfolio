@@ -68,13 +68,20 @@ const Menu  = React.forwardRef<React.Ref<HTMLDivElement>[], Props>(( props, ref)
     }, [ props.active ])
    
 
-    // const scrollToDiv   = ( id ) => {
-    //     // refs[id].current.scrollIntoView()
-    //     refs.forEach(( k, v ) => {
-    //         var refId  = k.current.id
-    //         if( refId === id ) k.current.scrollIntoView()
-    //     })
-    // }
+    const scrollToDiv   = ( id: string ) => {
+        refs.forEach(( k, v ) => {
+            if( k.current )
+            {
+                var refId = k.current.id
+                if( refId === id ) k.current.scrollIntoView()
+            }
+        })
+        // refs[id].current.scrollIntoView()
+        // refs.forEach(( k, v ) => {
+        //     var refId  = k.current.id
+        //     if( refId === id ) k.current.scrollIntoView()
+        // })
+    }
     return(
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', alignItems: 'center', alignContent: 'space-between', width: '100%'}}>
             <styles.LogoContainer>
@@ -90,7 +97,7 @@ const Menu  = React.forwardRef<React.Ref<HTMLDivElement>[], Props>(( props, ref)
                        
                             
                         // </styles.Button>
-                        <Button focus={focus[k.id]} key={k.label} onClick={() => alert('Clicked')}>
+                        <Button focus={focus[k.id]} key={k.label} onClick={() => scrollToDiv(k.id)}>
                             <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}>{k.icon}</section>
                             <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>{k.label}</section>
                         </Button>

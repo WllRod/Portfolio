@@ -41,14 +41,12 @@ const MainApp: React.FC<Props> = () => {
     const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef, knowledgeRef, projectRef ])
     // const modalContent  = useSelector( state => state.data )
     
-    const [ values, setValues   ]   = useState({
-        about: false
-    })
+    const [ values, setValues   ]   = useState({})
     const [ showMenu, setShowMenu   ]   = useState( false )
     const observerHook    = ObserverHook( refs )
 
     useEffect(() => {
-        console.log( observerHook )
+        setValues( prevState => ({ ...prevState, ...observerHook}))
     }, [ observerHook ])
     
     useEffect(() => {
@@ -68,11 +66,15 @@ const MainApp: React.FC<Props> = () => {
                         <S.HambMenuContainer showMenu={showMenu}>
                             <Hamburger color={'whitesmoke'} size={30} duration={0.5} toggled={showMenu} toggle={setShowMenu}/>
                         </S.HambMenuContainer>
-                        {/* <Intro id="intro" animation={true} ref={ introRef } contact={contactRef}/> */}
+                        <Intro id="intro" ref={introRef}/>
                     </S.ContentSection>
 
                     <S.ContentSection showMenu={showMenu}>
                         <About title={"Sobre Mim"} ref={ aboutRef } id={"about"} animation={values['about']}/>
+                    </S.ContentSection>
+
+                    <S.ContentSection showMenu={showMenu}>
+                        <Experience ref={experienceRef } id="experience" animation={values['experience']}/>
                     </S.ContentSection>
 
                 </div>

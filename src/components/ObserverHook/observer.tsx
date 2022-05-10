@@ -19,27 +19,27 @@ export const ObserverHook  = ( refsArray: React.RefObject<any> ) => {
         if( refsArray.current ){
             
             refsArray.current.forEach(( k, i ) => {
-                console.log( k.current )
-                // const observer  = new IntersectionObserver(( entries ) => {
-                //     const [entry]   = entries
-                //     if(entry.isIntersecting){
-                //         setRefsDict({
-                //             ...refsDict,
-                //             [entry.target.id]: true
-                //         })
-                //     }
-                // },
-                // {
-                //     root: null,
-                //     rootMargin: '0px',
-                //     threshold: [0.3, 0.1]
-                // })
+                
+                const observer  = new IntersectionObserver(( entries ) => {
+                    const [entry]   = entries
+                    if(entry.isIntersecting){
+                        setRefsDict({
+                            ...refsDict,
+                            [entry.target.id]: true
+                        })
+                    }
+                },
+                {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: [0.3, 0.1]
+                })
 
-                // if( k.current ){
-                //     observer.observe( k.current )
-                // }else if(k.current === undefined){
-                //     observer.observe( k )
-                // }
+                if( k.current ){
+                    observer.observe( k.current )
+                }else if(k.current === undefined){
+                    observer.observe( k )
+                }
             })
     
             // const observer  = new IntersectionObserver( ( entries ) => {

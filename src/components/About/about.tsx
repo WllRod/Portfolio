@@ -13,17 +13,12 @@ interface Props {
 }
 
 const About = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
-    console.log( props )
-    // return(
-    //     <div ref={ref}>
-    //         TESTE
-    //     </div>
-    // )
-    // const aboutRef          = ref  
+    
     const imgRef            = useRef( null )
     const testeRef          = useRef( null )
     const [ img, setImg]    = useState( null )
-    const animation         = AnimationHooks( props.animation )
+
+    
     let abilities           = [
         {
             name: "Python",
@@ -100,7 +95,7 @@ const About = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
                            
                             {
                                 abilities.map(( v, i ) => {
-                                    return <ProgressBar max={v.max} animation={animation} title={v.name} key={i}/> 
+                                    return <ProgressBar max={v.max} animation={props.animation} title={v.name} key={i}/> 
                                 })
                             }
                         </section>
@@ -112,4 +107,4 @@ const About = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
     )
 })
 
-export default About
+export default React.memo(About)
