@@ -2,7 +2,23 @@ import React, { useEffect, useState } from 'react'
 import * as styles from '../../styles/componentsStyles/menu'
 import { Home, Person, School, Work, ChatBubble } from '@material-ui/icons'
 import { FaLayerGroup } from 'react-icons/fa'
-const Menu  = React.forwardRef(( props, ref) => {
+
+interface Props {
+    active: boolean
+}
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
+    focus: boolean,
+}
+
+const Button: React.FC<ButtonProps> = ({ focus, children, ...props }) => {
+    return(
+        <styles.Button {...props}>
+            {children}
+        </styles.Button>
+    )
+}
+const Menu  = React.forwardRef<React.Ref<HTMLDivElement>[], Props>(( props, ref) => {
     
     const [ refs, setRefs ] = useState( null )
     const [ focus, setFocus ]   = useState({})
@@ -39,8 +55,11 @@ const Menu  = React.forwardRef(( props, ref) => {
         }
     ]
     useEffect(() => {
-        setRefs( ref.current )
-        setFocus( Object.assign({}, ...Object.keys( ref.current ).map((x) => ({[x]: false}))) )
+        if( "current" in ref)
+        {
+            setRefs( ref.current )
+            setFocus( Object.assign({}, ...Object.keys( ref.current ).map((x) => ({[x]: false}))) )
+        }
         
     }, [ ref ] )
 
@@ -49,12 +68,19 @@ const Menu  = React.forwardRef(( props, ref) => {
     }, [ props.active ])
    
 
-    const scrollToDiv   = ( id ) => {
-        // refs[id].current.scrollIntoView()
+    const scrollToDiv   = ( id: string ) => {
         refs.forEach(( k, v ) => {
-            var refId  = k.current.id
-            if( refId === id ) k.current.scrollIntoView()
+            if( k.current )
+            {
+                var refId = k.current.id
+                if( refId === id ) k.current.scrollIntoView()
+            }
         })
+        // refs[id].current.scrollIntoView()
+        // refs.forEach(( k, v ) => {
+        //     var refId  = k.current.id
+        //     if( refId === id ) k.current.scrollIntoView()
+        // })
     }
     return(
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', alignItems: 'center', alignContent: 'space-between', width: '100%'}}>
@@ -67,10 +93,14 @@ const Menu  = React.forwardRef(( props, ref) => {
             {
                 menuOptions.map(( k, v ) => {
                     return(
-                        <styles.Button onClick={ () => scrollToDiv(k.id)} focus={focus[k.id]} key={k.label}>
+                        // <styles.Button focus={focus[k.id]} key={k.label}>
+                       
+                            
+                        // </styles.Button>
+                        <Button focus={focus[k.id]} key={k.label} onClick={() => scrollToDiv(k.id)}>
                             <section style={{ width: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffd15c'}}>{k.icon}</section>
                             <section style={{ width: '75%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>{k.label}</section>
-                        </styles.Button>
+                        </Button>
                     )
                 })
             }

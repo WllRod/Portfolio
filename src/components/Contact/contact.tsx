@@ -8,18 +8,27 @@ import Button from '../Assets/button'
 import emailjs from '@emailjs/browser';
 import { useDispatch } from 'react-redux'
 
-const Contact   = React.forwardRef(( props, ref) => {
+interface Props{
+    id: string,
+    animation: boolean
+}
+
+const Contact   = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
     const labelsRef = React.useRef( null )
     const animation = AnimationHooks( props )
     const formRef   = useRef( null )
     const refs      = React.useRef([ labelsRef ])
-    const [ values, setValues ] = React.useState( false )
+    const [ values, setValues ] = React.useState({})
     const [ inputs, setInputs ] = React.useState( {} )
+    const [ openModal, setOpenModal ]  = React.useState(false)
     const observer  = ObserverHook( refs )
-    const dispatch  = useDispatch()
+    // const dispatch  = useDispatch()
 
     React.useEffect(() => {
-        setValues( observer )
+        setValues( prevState => ({
+            ...prevState,
+            ...observer
+        }))
     }, [ observer ])
 
     const handleInputs  = ( e ) => {
@@ -45,16 +54,17 @@ const Contact   = React.forwardRef(( props, ref) => {
         const USER_ID       = process.env.REACT_APP_USER_ID
         var data = {
             to_email:'wll_rodrigues@outlook.com',
-            to_name:inputs.name,
-            from_name: inputs.email,
-            message: inputs.message
+            to_name:inputs['name'],
+            from_name: inputs['email'],
+            message: inputs['message']
         };
 
         
 
         emailjs.send(SERVICE_ID, TEMPLATE_ID, data, USER_ID)
             .then((result) => {
-                dispatch({ type: 'SHOW_MODAL', Component: <ModalContent />});
+                // dispatch({ type: 'SHOW_MODAL', Component: <ModalContent />});
+                setOpenModal(true)
                 clearInputs()
             })
             .catch(function(err){
@@ -65,18 +75,25 @@ const Contact   = React.forwardRef(( props, ref) => {
 
     
     const ModalContent   = ( props ) => {
+        if(!openModal) return null
+
         return(
-            <>
-                E-mail enviado com sucesso!
-                <Button title={"Sair"} onClick={() => dispatch({ type: 'SHOW_MODAL', Component: null})}/>
-            </>
+            <div className="parent">
+                <div className='childContainer'>
+                    <div className='child'>
+                        E-mail enviado com sucesso!
+                        <Button title={"Sair"} onClick={() => setOpenModal(false)}/>
+                    </div>
+                </div>
+            </div>
+    
         )
     }
     return(
         <Card title={"Entre em contato"} animation={ props.animation || animation } ref={ ref } id={ props.id }>
             <styles.ContactContainer>
                
-                <styles.TitleDivContainer image={Map} ref={labelsRef} id='labels' animation={ values.labels }>
+                <styles.TitleDivContainer image={Map} ref={labelsRef} id='labels' animation={ values['labels'] }>
                     <h3>Vamos conversar?</h3>
                     <styles.WppSpan>
                         Não gosta de formulário? Me chama no&nbsp;
@@ -91,7 +108,7 @@ const Contact   = React.forwardRef(( props, ref) => {
                         placeholder='Seu Nome' 
                         id='name' 
                         onChange={e => handleInputs( e )} 
-                        value={inputs.name || ''}
+                        value={inputs['name'] || ''}
                         autoComplete="nope"
                        
                     />
@@ -99,7 +116,7 @@ const Contact   = React.forwardRef(( props, ref) => {
                         placeholder='Endereço de Email' 
                         id='email' 
                         onChange={e => handleInputs( e )} 
-                        value={inputs.email || ''}
+                        value={inputs['email'] || ''}
                         autoComplete="nope"
                     />
                     <input 
@@ -107,7 +124,7 @@ const Contact   = React.forwardRef(( props, ref) => {
                         placeholder='Assunto' 
                         id='subject' 
                         onChange={e => handleInputs( e )}
-                        value={inputs.subject || ''}
+                        value={inputs['subject'] || ''}
                         autoComplete="nope"
                     />
                     <textarea 
@@ -115,15 +132,17 @@ const Contact   = React.forwardRef(( props, ref) => {
                         placeholder='Mensagem' 
                         id='message' 
                         onChange={e => handleInputs( e )} 
-                        value={inputs.message || ''}
+                        value={inputs['message'] || ''}
                         autoComplete="nope"
                     />
                     <Button title="Mandar Mensagem" onClick={e => handleSubmit( e )}/ >
+                        <ModalContent />
                     {/* <input type="submit" value="Send" /> */}
                 </styles.FormContainer>
             </styles.ContactContainer>
         </Card>
     )
+    
 })
 
 export default Contact
