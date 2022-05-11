@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export const ObserverHook  = ( refsArray ) => {
+export const ObserverHook  = ( refsArray: React.RefObject<any> ) => {
     const [ refsDict, setRefsDict ] = React.useState({})
     const [ width, setWidth ]       = React.useState(0)
 
@@ -19,6 +19,7 @@ export const ObserverHook  = ( refsArray ) => {
         if( refsArray.current ){
             
             refsArray.current.forEach(( k, i ) => {
+                
                 const observer  = new IntersectionObserver(( entries ) => {
                     const [entry]   = entries
                     if(entry.isIntersecting){
@@ -40,31 +41,7 @@ export const ObserverHook  = ( refsArray ) => {
                     observer.observe( k )
                 }
             })
-    
-            // const observer  = new IntersectionObserver( ( entries ) => {
-            //     const [ entry ] = entries
-            //     if( entry.isIntersecting ){
-            //         var id  = entry.target.id
-            //         setRefsDict({
-            //             ...refsDict,
-            //             [id]: true
-            //         })
-            //     }
-            // },
-            // {
-            //     root: null,
-            //     rootMargin: '0px',
-            //     threshold: 0.2
-            // } )
-            // refsArray.current.forEach(( k ) => {
-            //     if( k.current ) observer.observe( k.current )
-            // })
-    
-            // return () => {
-            //     refsArray.current.forEach(( k ) => {
-            //         if( k.current ) observer.unobserve( k.current )
-            //     })
-            // }
+
         }
         
 

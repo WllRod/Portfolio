@@ -1,4 +1,9 @@
+import React from 'react'
 import styles from 'styled-components'
+
+interface Props{
+    showMenu: boolean
+}
 
 export const App    = styles.div`
     width: 100%;
@@ -22,7 +27,7 @@ export const HambMenuContainer  = styles.div`
         }
     }
 `
-export const MenuSection    = styles.section`
+export const MenuSection    = styles.section<Props>`
     height: 100vh;
     position:fixed;
     width:20vw;
