@@ -20,12 +20,7 @@ import TSX from './components/Card/card'
 //         return null
 //     }
 //     return(
-//         <div className="parent">
-//             <div className='child'>
-//                 { props.component }
-//             </div>
-//         </div>
-//     )
+
 // }
 
 interface Props {
@@ -66,7 +61,7 @@ const MainApp: React.FC<Props> = () => {
                         <S.HambMenuContainer showMenu={showMenu}>
                             <Hamburger color={'whitesmoke'} size={30} duration={0.5} toggled={showMenu} toggle={setShowMenu}/>
                         </S.HambMenuContainer>
-                        <Intro id="intro" ref={introRef}/>
+                        <Intro id="intro" ref={introRef} contactRef={contactRef}/>
                     </S.ContentSection>
 
                     <S.ContentSection showMenu={showMenu}>
@@ -75,6 +70,18 @@ const MainApp: React.FC<Props> = () => {
 
                     <S.ContentSection showMenu={showMenu}>
                         <Experience ref={experienceRef } id="experience" animation={values['experience']}/>
+                    </S.ContentSection>
+
+                    <S.ContentSection showMenu={showMenu}>
+                        <Knowledge ref={knowledgeRef} id="knowledge" animation={values['knowledge']}/>
+                    </S.ContentSection>
+
+                    <S.ContentSection showMenu={showMenu}>
+                        <Projects ref={projectRef } id="project" animation={values['project']} />
+                    </S.ContentSection>
+
+                    <S.ContentSection showMenu={showMenu}>
+                        <Contact ref={contactRef } id="contact" animation={values['contact']}/>
                     </S.ContentSection>
 
                 </div>

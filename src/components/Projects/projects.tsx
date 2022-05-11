@@ -7,7 +7,12 @@ import { IconButton } from '@material-ui/core'
 import ProjectsCard from './Components/ProjectsCard'
 import { BrowserView, MobileView } from 'react-device-detect'
 
-const Technologies  = React.forwardRef(( props, ref) => {
+interface Props{
+    id: string,
+    animation: boolean
+}
+
+const Technologies  = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
     const [ animation, setAnimation ] = React.useState( false )
     const [ firstElIsVisible, setFirstElIsVisible   ]   = React.useState(false)
     const [ lastElIsIsVisible, setLastElIsIsVisible   ]   = React.useState(false)
@@ -18,8 +23,7 @@ const Technologies  = React.forwardRef(( props, ref) => {
     const refs      = React.useRef([ firstRef, lastRef ])
     const [ touchCoordinates, setTouchCoordinates ] = React.useState(
         {
-            x: 0,
-            y: 0
+            x: 0
         }
     )
 
@@ -96,7 +100,6 @@ const Technologies  = React.forwardRef(( props, ref) => {
 
     const NextButton = ( ) => {
 
-        console.log( lastElIsIsVisible)
         if(firstElIsVisible && !lastElIsIsVisible)
         {
             return(
@@ -199,6 +202,8 @@ const Technologies  = React.forwardRef(( props, ref) => {
             
         </Card>
     )
+
+    
 })
 
 export default Technologies

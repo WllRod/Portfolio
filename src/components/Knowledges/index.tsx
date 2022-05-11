@@ -8,7 +8,12 @@ import ProgressBar from '../Assets/progressBar'
 import { KnowledgeCards, Content, SubCardsContainer } from '../../styles/componentsStyles/knowledgerStyle'
 import { Data } from './Data'
 
-export const Knowledge = React.forwardRef(( props, ref ) => {
+interface Props{
+    id: string,
+    animation: boolean
+}
+
+export const Knowledge = React.forwardRef<HTMLDivElement, Props>(( props, ref ) => {
 
     const [ values, setValues ] = React.useState({})
     const refs  = useRef([])
@@ -47,7 +52,7 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
                                                 }}/>
                                                 <span style={{ fontWeight: '500', fontSize: '1rem'}}>{v.Title}</span>
                                                 <section style={ { width: '100%', height: 'max-content'}}>
-                                                    <ProgressBar max={v.Width} startAnimation={values[i]} mini={true}/>
+                                                    <ProgressBar max={v.Width} animation={values[i]} mini={true}/>
                                                 </section>
                                             </Content>
                                         </KnowledgeCards>
@@ -66,6 +71,8 @@ export const Knowledge = React.forwardRef(( props, ref ) => {
             </styles.ExperienceContainer>
         </Card>
     )
+
+    
 })
 
 export default Knowledge

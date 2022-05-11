@@ -18,7 +18,7 @@ interface Props{
     
     max: number,
     animation: boolean,
-    title: string,
+    title?: string,
     mini?: boolean
 }
 
@@ -26,7 +26,7 @@ const ProgressBar: React.FC<Props> = ({ max, animation, title, mini, ...props })
     const [ width, setWidth ]               = useState(0)
     const [ color, setColor ]               = useState( colors[0] )
     const startAnimation = animation
-    console.log( animation )
+    
     let timer = null
     // let timer = setInterval(() => { setWidth( width + 1 ); console.log( width ) }, 100)
 
