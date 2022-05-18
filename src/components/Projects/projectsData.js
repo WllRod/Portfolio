@@ -38,7 +38,7 @@ export const projectsData = [
         title: "Importador de NFSe",
         typeOfProject: "Profissional",
         url: "https://c.wallhere.com/photos/db/ac/1920x1080_px_abstract_abstraction_Engineering_Gear_gears_Machine_mechanical-1803255.jpg!d",
-        github: <a href="https://github.com/WllRod/Importar-NFSe.git" target={"_blank"}>
+        github: <a href="https://github.com/WllRod/Importar-NFSe.git" target="_blank">
                     <GitHub style={{color: 'white', fontSize: '25px'}}/>
                 </a>,
         description:
