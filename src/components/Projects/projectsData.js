@@ -29,7 +29,7 @@ export const projectsData = [
         </>,
         github: null,
         redirect: 
-            <a href="http://petrosilk-teste.s3-website-us-east-1.amazonaws.com/app" target={"_blank"}>
+            <a href="http://gorilla-teste.s3-website-us-east-1.amazonaws.com/" target={"_blank"}>
                 <FaExternalLinkAlt style={{color: 'white', fontSize: '25px'}}/>
             </a>
     },
