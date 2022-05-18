@@ -4,7 +4,17 @@ import * as s from '../../../styles/componentsStyles/projects'
 import { IconButton } from '@material-ui/core'
 import { DragHandle } from '@material-ui/icons'
 
-const ProjectsCard = React.forwardRef((props, ref) => {
+interface Props{
+    type: string,
+    url: string,
+    title: string,
+    description: React.ReactNode,
+    github: React.ReactNode,
+    redirect: React.ReactNode
+
+}
+
+const ProjectsCard = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
     const [ open, setOpen ]             = React.useState( false )
     return(
         <s.ProjectsCard ref={ref} {...props}>
