@@ -24,10 +24,7 @@ const ProjectsCard = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
             <s.ImgDiv url={props.url} />
             <s.ExpandInformations open={open}>
                 <div style={{ display: 'flex', width: '100%', height: '100px', flexDirection: 'column'}}>
-                    {/* <IconButton onClick={() => setOpen(!open)} style={{ width: 'max-content', height: '100px'}}>
-                        <DragHandle style={{fontSize: '30px', color: 'white'}}/>
-                    </IconButton>
-                    <s.ProjectTitle>{title}</s.ProjectTitle> */}
+                   
                     <div style={{ width: '100%', height: '10%', alignItems: 'center', justifyContent: 'center',textAlign:'center'}}>
                         <IconButton onClick={() => setOpen(!open)} style={{height: '100%'}}>
                             <DragHandle style={{fontSize: '30px', color: 'white'}}/>
