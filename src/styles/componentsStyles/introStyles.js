@@ -29,20 +29,20 @@ export const ExternaLink    = styles.span`
     transform: translatey(0px);
     
     &:hover{
-        animation: bounce 1s ease-in-out infinite;
+        animation: animation 1s ease-in-out infinite;
     }
-    @keyframes bounce{
+    @keyframes animation{
         0%{
-            transform: translatey(0px);
+            transform: scale(1.0);
         }
         50%{
-            transform: translatey(-10px);
+            transform: scale(1.1);
             //width: 100px;
             //height: 40px;
             
         }
         100%{
-            transform: translatey(-10px);
+            transform: scale(1.0);
             //transform: translatey(0px);
         }
     }

@@ -2,6 +2,7 @@ import styles from 'styled-components'
 
 export const ProjectsContainer  = styles.div`
     padding-top: 70px;
+    padding-bottom:30px;
     margin-left:30px;
     display:flex;
     flex-direction:row;
@@ -29,6 +30,21 @@ export const ProjectsCard   = styles.div`
     min-width:30vw;
     height:65vh;
     border-radius:30px;
+    &:hover{
+        animation: animation 1s;
+    }
+    @keyframes animation{
+        0% {
+            transform: scale(1.0);
+        }
+        50%{
+            transform: scale(1.1);
+            z-index:100;
+        }
+        100%{
+            transform: scale(1.0);
+        }
+    }
     @media screen and ( max-width: 767px ){
         min-width: 100%;
         height:50vh;
@@ -55,7 +71,7 @@ export const ImgDiv = styles.div`
     background-size: cover;
     background-repeat: no-repeat;
     //background:yellow;
-    opacity:0.5;
+    
     display:flex;
     border-radius:30px;
     
@@ -160,12 +176,12 @@ export const TypeOfProject = styles.div`
     text-align:center;
     height:max-content;
     top:0px;
-    padding:10px;
+    padding:8px;
     z-index:100;
     border-radius: 0 0 30px 30px;
     @media screen and (max-width: 767px)
     {
-        font-size:1rem;
+        font-size:0.8rem;
     }
 
     // @media screen and (min-width: 768px)
@@ -185,12 +201,13 @@ export const ProjectTitle = styles.span`
     
     color:white;
     font-weight:700;
-    font-size:1rem;
+    font-size:1.5rem;
     padding:0px;
     margin-top:15px;
     @media screen and (max-width:767px)
     {
         margin-top:0px;
+        font-size:1rem;
     }
 `
 export const ExpandInformations = styles.div`
@@ -203,8 +220,8 @@ export const ExpandInformations = styles.div`
     position:absolute;
     bottom:0;
     display:flex;
-    
-    border-radius: ${ props => props.open ? '30px' : '0 0 30px 30px'};
+    left:0;
+    border-radius: ${ props => props.open ? '30px' : '0 0 27px 27px'};
     align-items:center;
     justify-content:center;
     flex-direction:column;

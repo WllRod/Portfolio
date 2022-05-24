@@ -19,6 +19,21 @@ export const Button = styles.div`
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     color: white;
+    &:hover{
+        animation: animation 1s;
+    }
+    @keyframes animation{
+        0% {
+            transform: scale(1.0);
+        }
+        50%{
+            transform: scale(1.1);
+        }
+        100%{
+            transform: scale(1.0);
+        }
+
+    }
     // ${ props => props.animation && `
     //     transform: translatey(0px);
     //     &:hover{
