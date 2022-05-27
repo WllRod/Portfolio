@@ -19,10 +19,11 @@ export const CardContent    = styles.div`
     `
 
 export const AboutContainer = styles.div`
-    background: #302f4e!important;
+    // background: #302f4e!important;
+    box-shadow: 1px 0px 5px black;
     margin-left:30px;
     overflow: auto;
-    color: whitesmoke;
+
     width: 60vw;
     
     border-radius: 30px;
@@ -101,7 +102,7 @@ export const Arrow  = styles.div`
     top:110px;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-right: 20px solid #302f4e;
+    border-right: 20px solid;
     
     @media screen and (max-width:767px){
         border-left: 30px solid transparent;

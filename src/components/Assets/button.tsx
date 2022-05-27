@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button: React.FC<ButtonProps> = ({animation, title, ...props}) => {
     return(
-        <styles.Button animation={animation} {...props}>{title}</styles.Button>
+        <styles.Button {...props}>{title}</styles.Button>
     )
 }
 

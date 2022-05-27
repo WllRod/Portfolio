@@ -15,12 +15,12 @@ export const IntroContainer = styles.div`
 
 export const NameStyle  = styles.h1`
     font-weight: 700;
-    color: whitesmoke;
+    
 `
 
 export const typewriterH2   = styles.h2`
     
-    color: whitesmoke;
+    
     font-weight: 400;
     
 `
@@ -53,7 +53,6 @@ export const ScrollDownCont = styles.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
     font-size: 15px;
     position: absolute;
     bottom: 25px;
@@ -71,7 +70,7 @@ export const ScrollDown = styles.div`
     margin-top: 20px;
     width: 25px;
     height: 30px;
-    border: 3px solid white;
+    border: 3px solid;
     border-radius: 60px;
     position: relative;
     &::before {
@@ -79,10 +78,11 @@ export const ScrollDown = styles.div`
         width: 5px;
         height: 5px;
         position: absolute;
+        
         top: 5px;
         left: 50%;
         transform: translateX(-50%);
-        background-color: white;
+        
         border-radius: 50%;
         opacity: 1;
         animation: wheel 2s infinite;

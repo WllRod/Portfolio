@@ -40,7 +40,6 @@ export const CardTitleLabel = styles.h1`
     position: absolute;
     margin-left: 20px;
     font-weight: 700;
-    color: white;
     bottom: -15px;
     left: 10px;
     background: none;

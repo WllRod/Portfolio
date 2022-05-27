@@ -109,13 +109,13 @@ const TypeWritterAnimation = React.memo(() => {
 const ExternalLinks = React.memo(() => {
     const hrefs = [
         <a href="https://github.com/WllRod" target={"_blank"}>
-            <GitHub style={{color: 'white', fontSize: '30px'}}/>
+            <GitHub style={{ fontSize: '30px'}} id="External_Icons"/>
         </a>,
         <a href="https://www.linkedin.com/in/william-rodrigues-687581233" target={"_blank"}>
-            <LinkedIn style={{color: 'white', fontSize: '30px'}}/>
+            <LinkedIn style={{ fontSize: '30px'}} id="External_Icons"/>
         </a>,
         <a href="https://api.whatsapp.com/send?phone=+5524993312025&text=Olá, William!" target={"_blank"}>
-            <WhatsApp style={{color: 'white', fontSize: '30px'}}/>
+            <WhatsApp style={{ fontSize: '30px'}} id="External_Icons"/>
         </a>
 
     ]
@@ -125,7 +125,7 @@ const ExternalLinks = React.memo(() => {
             {
                 hrefs.map(( el, i ) => {
                     return(
-                        <styles.ExternaLink key={i}>
+                        <styles.ExternaLink key={i} id="External_Icons">
                             {el}
                         </styles.ExternaLink>
                     )
@@ -165,7 +165,7 @@ const Intro = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
             
             <styles.ScrollDownCont>
                 Deslize para baixo
-                <styles.ScrollDown />
+                <styles.ScrollDown id="scrollDown"/>
             </styles.ScrollDownCont>
 
         </IntroContainer>

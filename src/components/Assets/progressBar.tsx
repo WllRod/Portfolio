@@ -95,7 +95,7 @@ const ProgressBar: React.FC<Props> = ({ max, animation, title, mini, ...props })
                 <span>{ title }</span>
                 { mini ? '' : <span>{width}%</span>}
             </styles.Section1>
-                <styles.PgrMain>
+                <styles.PgrMain id="PgrMain">
                     
                     <styles.Bar width={ width } background={color}>
                         A

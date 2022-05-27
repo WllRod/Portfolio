@@ -62,7 +62,7 @@ const About = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
             var bounding    = ref.getBoundingClientRect()
             var left = width <= 767 ? bounding.x-5 : bounding.x 
             
-            return <styles.Arrow left={ left }/>
+            return <styles.Arrow left={ left } id="Arrow"/>
         }
         return null
     } 
@@ -74,7 +74,7 @@ const About = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
                 <styles.ImgContainer >
                    <styles.IMG image={Perfil} ref={ imgRef }></styles.IMG>
                 </styles.ImgContainer>
-                <styles.AboutContainer >
+                <styles.AboutContainer id="Card_Content">
                     <Arrow imgRef={ imgRef }/>
               
                     <styles.Section showBorder={ false }>

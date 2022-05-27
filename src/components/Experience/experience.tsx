@@ -68,14 +68,14 @@ export const Experience = React.forwardRef<HTMLDivElement, Props>(( props, ref )
                 {
                     Experiencias.map(( valores, i ) => {
                         return(
-                            <styles.ExperienceContent key={i}>
+                            <styles.ExperienceContent key={i} id="Card_Content">
                                 <styles.SectionsContainer>
                                     {
                                         valores.map(( v, index ) => {
                                             return(
                                                 <styles.Section id={ v.id } ref={ el => refs.current.push(el) } animation={values[v.id]} key={index}>
-                                                    <styles.IconDiv>
-                                                        <v.icon style={{ fontSize: '30px', color: '#ff4c60'}}/>
+                                                    <styles.IconDiv id="Icons">
+                                                        <v.icon style={{ fontSize: '30px'}}/>
                                                     </styles.IconDiv>
                                                     <styles.TimeSpan>{v.tempo}</styles.TimeSpan>
                                                     <styles.LocalSpan>{v.local}</styles.LocalSpan>

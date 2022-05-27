@@ -13,9 +13,10 @@ export const App    = styles.div`
     font-family: 'Rubik', sans-serif;
     overflow-Y: auto;
     overflow-X: hidden;
+    position:relative;
     
 `
-export const HambMenuContainer  = styles.div`
+export const HambMenuContainer  = styles.div<Props>`
     position: fixed;
     z-index:200;
     margin-top:10px;
@@ -48,7 +49,7 @@ export const MenuSection    = styles.section<Props>`
     }
 `
 
-export const ContentSection = styles.section`
+export const ContentSection = styles.section<Props>`
     width: 100%;
     height: max-content;
     min-height:100vh;

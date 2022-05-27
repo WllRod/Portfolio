@@ -16,7 +16,7 @@ export const Section1           = styles.section`
 `
 export const PgrMain            = styles.div`
     width:100%;
-    background: #f1f1f1;
+    
     margin-top:10px;
     border-radius:10px;
     height:max-content;

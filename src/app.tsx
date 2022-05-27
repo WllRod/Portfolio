@@ -9,10 +9,9 @@ import Menu from './components/Menu/menu'
 import { Divide as Hamburger } from 'hamburger-react'
 import { ObserverHook } from './components/ObserverHook/observer'
 import Contact from './components/Contact/contact'
-import { useSelector } from 'react-redux'
 import Knowledge from './components/Knowledges'
 import Projects from './components/Projects/projects'
-import TSX from './components/Card/card'
+import SwitchTheme from './components/Theme/Theme'
 
 // const Modal = ( props ) => {
     
@@ -35,7 +34,7 @@ const MainApp: React.FC<Props> = () => {
     const contactRef    = useRef<HTMLDivElement>( null )
     const refs          = useRef([ introRef, aboutRef, experienceRef, contactRef, knowledgeRef, projectRef ])
     // const modalContent  = useSelector( state => state.data )
-    
+    const [ darkMode, setDarkMode ] = React.useState<boolean>(false);
     const [ values, setValues   ]   = useState({})
     const [ showMenu, setShowMenu   ]   = useState( false )
     const observerHook    = ObserverHook( refs )
@@ -46,21 +45,24 @@ const MainApp: React.FC<Props> = () => {
     }, [ observerHook ])
     
     useEffect(() => {
+        console.log(darkMode)
+    }, [ darkMode ])
+    useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
     
     return(
         <>
-            <GlobalStyle />
+            <GlobalStyle darkMode={darkMode}/>
             <S.App>
                 <S.MenuSection showMenu={showMenu}>
                    <Menu ref={refs} active={true} />
                 </S.MenuSection>
-
+                <SwitchTheme callback={setDarkMode}/>
                 <div style={{ width: '100%'}}>
                     <S.ContentSection>
                         <S.HambMenuContainer showMenu={showMenu}>
-                            <Hamburger color={'whitesmoke'} size={30} duration={0.5} toggled={showMenu} toggle={setShowMenu}/>
+                            <Hamburger  size={30} duration={0.5} toggled={showMenu} toggle={setShowMenu}/>
                         </S.HambMenuContainer>
                         <Intro id="intro" ref={introRef} contactRef={contactRef}/>
                     </S.ContentSection>

@@ -13,7 +13,7 @@ export const ExperienceContainer    = styles.div`
     gap:20px;
     padding-left:150px;
     width:100%;
-
+    
     flex-wrap:wrap;
     ${ props => props.animation && `
         animation: fadeInUp 1s ease-in-out;
@@ -43,13 +43,14 @@ export const ExperienceContainer    = styles.div`
 export const ExperienceContent  = styles.section`
         border-radius:30px;
         display: flex;
-        background: #302f4e!important;
+        
         flex-direction:row;
         width:33vw;
         height:auto;
         padding:20px;
         padding-top:0px;
-        color:whitesmoke;
+        
+        box-shadow: 1px 0px 5px black;
         & > *{
             margin-top:15px;
         }
@@ -110,6 +111,8 @@ export const IconDiv    = styles.div`
         height: max-content;
         position: absolute;
         left: -15px;
+        color:#ff4c60;
+        
 `
 
 export const TimeSpan   = styles.span`
