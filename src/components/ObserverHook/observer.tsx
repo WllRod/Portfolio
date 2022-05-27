@@ -22,11 +22,15 @@ export const ObserverHook  = ( refsArray: React.RefObject<any> ) => {
                 
                 const observer  = new IntersectionObserver(( entries ) => {
                     const [entry]   = entries
+                    
                     if(entry.isIntersecting){
                         setRefsDict({
                             ...refsDict,
                             [entry.target.id]: true
                         })
+
+                        
+
                     }
                 },
                 {

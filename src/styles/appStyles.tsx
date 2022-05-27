@@ -57,7 +57,7 @@ export const ContentSection = styles.section`
     align-items: center;
     position: relative;
     overflow: hidden;
-    ${ props => props.showMenu ? '    padding-left:20vw;' : ''}
+    // ${ props => props.showMenu ? '    padding-left:20vw;' : ''}
     transition:padding 0.4s ease-in-out;
 `
 

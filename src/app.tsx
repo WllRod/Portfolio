@@ -42,6 +42,7 @@ const MainApp: React.FC<Props> = () => {
 
     useEffect(() => {
         setValues( prevState => ({ ...prevState, ...observerHook}))
+
     }, [ observerHook ])
     
     useEffect(() => {
@@ -57,30 +58,30 @@ const MainApp: React.FC<Props> = () => {
                 </S.MenuSection>
 
                 <div style={{ width: '100%'}}>
-                    <S.ContentSection showMenu={showMenu}>
+                    <S.ContentSection>
                         <S.HambMenuContainer showMenu={showMenu}>
                             <Hamburger color={'whitesmoke'} size={30} duration={0.5} toggled={showMenu} toggle={setShowMenu}/>
                         </S.HambMenuContainer>
                         <Intro id="intro" ref={introRef} contactRef={contactRef}/>
                     </S.ContentSection>
 
-                    <S.ContentSection showMenu={showMenu}>
+                    <S.ContentSection>
                         <About title={"Sobre Mim"} ref={ aboutRef } id={"about"} animation={values['about']}/>
                     </S.ContentSection>
 
-                    <S.ContentSection showMenu={showMenu}>
+                    <S.ContentSection>
                         <Experience ref={experienceRef } id="experience" animation={values['experience']}/>
                     </S.ContentSection>
 
-                    <S.ContentSection showMenu={showMenu}>
+                    <S.ContentSection>
                         <Knowledge ref={knowledgeRef} id="knowledge" animation={values['knowledge']}/>
                     </S.ContentSection>
 
-                    <S.ContentSection showMenu={showMenu}>
+                    <S.ContentSection>
                         <Projects ref={projectRef } id="project" animation={values['project']} />
                     </S.ContentSection>
 
-                    <S.ContentSection showMenu={showMenu}>
+                    <S.ContentSection>
                         <Contact ref={contactRef } id="contact" animation={values['contact']}/>
                     </S.ContentSection>
 
