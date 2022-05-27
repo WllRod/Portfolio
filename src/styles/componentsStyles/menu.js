@@ -17,7 +17,7 @@ export const LogoContainer   = styles.div`
     font-weight: 700;
     width: 100%;
     padding:30px;
-    color: whitesmoke;
+    
     height: 20%;
     justify-content: flex-start;
     font-size:2rem;
@@ -32,7 +32,7 @@ export const Button = styles.div`
     height:50px;
     cursor: pointer;
     margin-bottom:20px;
-    color: ${ props => props.focus ? `#ffd15c`: 'whitesmoke'};
+    ${ props => props.focus ? `color: #ffd15c;`: ''};
     font-weight: 400;
     &:hover{
         color:#ffd15c;

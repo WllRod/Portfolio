@@ -98,7 +98,7 @@ const Contact   = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
                     <styles.WppSpan>
                         Não gosta de formulário? Me chama no&nbsp;
                         <a href='https://api.whatsapp.com/send?phone=+5524993312025&text=Olá, William!' target={"_blank"}>
-                            What's App
+                            Whats App
                         </a>
                         ! 👋
                     </styles.WppSpan>

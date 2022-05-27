@@ -81,7 +81,7 @@ export const HoverContainer = styles.div`
     width: 100%;
     height:100%;
     top:0;
-    color:white;
+    
     position:absolute;
     & > * {
         animation: fadeInUp 1s ease-in-out;
@@ -96,7 +96,7 @@ export const Hover  = styles.div`
     right: 0;
     &:after{
         content: '';
-        background: #302f4e;
+        // background: #302f4e;
         width:100%;
         height:104.5%;
         position:absolute;
@@ -137,7 +137,7 @@ export const ToolBar = styles.div`
     right: 0;
     &:after{
         content: '';
-        background: #353353;
+        // background: #353353;
         width:100%;
         height:104.5%;
         position:absolute;
@@ -153,7 +153,7 @@ export const ToolBar = styles.div`
 `
 
 export const ToolBarChild = styles.div`
-    color:black;
+    
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -199,7 +199,7 @@ export const TypeOfProject = styles.div`
 
 export const ProjectTitle = styles.span`
     
-    color:white;
+    
     font-weight:700;
     font-size:1.5rem;
     padding:0px;
@@ -214,8 +214,8 @@ export const ExpandInformations = styles.div`
     width: 100%;
     transition: height 0.5s ease;
     height: ${ props => props.open ? '100%' : '20%'};
-    background:#302f4e;
-    color:white;
+    //background:#302f4e;
+    
     z-index:0;
     position:absolute;
     bottom:0;
@@ -251,7 +251,7 @@ export const ScrollLeft = styles.div`
     margin-top: 20px;
     width: 25px;
     height: 30px;
-    border: 3px solid white;
+    border: 3px solid;
     border-radius: 5px;
     position: relative;
     &::before {

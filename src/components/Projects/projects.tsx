@@ -194,9 +194,9 @@ const Technologies  = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
                
             </s.ProjectsContainer>
                 <MobileView style={{ width: '100%', height: 'max-content'}}>
-                    <div style={{ fontSize: '15px', color: 'white',  width: '100%', height: '250px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px'}}>
+                    <div style={{ fontSize: '15px',   width: '100%', height: '250px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px'}}>
                         Deslize para o lado
-                        <s.ScrollLeft />
+                        <s.ScrollLeft id="scrollDown"/>
                     </div>
                 </MobileView>
             

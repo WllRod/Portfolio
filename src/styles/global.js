@@ -20,12 +20,12 @@ const darkMode = css`
 `
 
 const lightMode = css`
-  color: black;
+  color: #2b6cb0;
   #scrollDown::before{
-    background:black;
+    background:#2b6cb0;
   }
-  #Card_Content{
-    background: 	#e4e5f1!important;
+  #Card_Content, .Card_Content{
+    background: 	#ffffff!important;
   }
   #Arrow{
     border-right-color:#f5f2f2;
@@ -34,9 +34,11 @@ const lightMode = css`
     background:grey;
   }
   #External_Icons{
-    color:black;
+    color:#2b6cb0;
   }
-  
+  #Menu{
+    background:#edf2f7;
+  }
 `
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,360;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -73,9 +75,10 @@ export default createGlobalStyle`
     height: 100vh;
     width: 100vw;
     scroll-behavior: smooth;
-    // transition: background-color 0.5s ease-out
+    transition: background-color 0.5s ease-out,
+                color 0.1s ease-out;
     
-    background-color:${props => props.darkMode ? '#353353' : '#fafafa' };
+    background-color:${props => props.darkMode ? '#353353' : '#edf2f7' };
     
   }
 

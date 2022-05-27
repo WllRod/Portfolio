@@ -55,7 +55,7 @@ const MainApp: React.FC<Props> = () => {
         <>
             <GlobalStyle darkMode={darkMode}/>
             <S.App>
-                <S.MenuSection showMenu={showMenu}>
+                <S.MenuSection showMenu={showMenu} id="Menu">
                    <Menu ref={refs} active={true} />
                 </S.MenuSection>
                 <SwitchTheme callback={setDarkMode}/>

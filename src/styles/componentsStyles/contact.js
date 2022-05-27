@@ -24,7 +24,6 @@ export const TitleDivContainer  = styles.div`
     background-image: url(${ props => props.image });
     background-repeat: no-repeat;
     background-size: contain;
-    color:whitesmoke;
     visibility: ${ props => props.animation ? 'visibility' : 'hidden'};
     & > h3{
         font-size:30px;
@@ -81,7 +80,6 @@ export const FormContainer  = styles.form`
         font-size: 16px;
         font-weight: 400;
         line-height: 1.6;
-        color: #454360;
         background-color: #fff;
         background-image: none;
         border: 0;

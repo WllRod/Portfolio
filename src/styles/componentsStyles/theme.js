@@ -35,14 +35,17 @@ export const Button = styled.section`
     z-index:100;
     align-items:center;
     justify-content:center;
-    animation: ${props => props.darkMode ? 'slideToRigth' : props.darkMode !== null ? 'slideToLeft' : ''} 0.5s forwards;
+    animation: ${props => props.darkMode ? 'slideToRight' : props.darkMode !== null ? 'slideToLeft' : ''} 0.5s forwards;
 
-    @keyframes slideToRigth{
+    @keyframes slideToRight{
         from{
             left:0;
         }
         to{
             left: 50%;
+        }
+        0%{
+            transform: rotate(360deg);
         }
     }
 
@@ -52,6 +55,9 @@ export const Button = styled.section`
         }
         to{
             left: 0;
+        }
+        0%{
+            transform: rotate(-360deg);
         }
     }
 `

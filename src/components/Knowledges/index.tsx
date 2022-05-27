@@ -34,7 +34,7 @@ export const Knowledge = React.forwardRef<HTMLDivElement, Props>(( props, ref ) 
                 {
                     Data.map(( v, i ) => {
                         return(
-                            <styles.ExperienceContent animation={values[i]} ref={el => refs.current[i] = el} id={i} intersection={true}>
+                            <styles.ExperienceContent animation={values[i]} ref={el => refs.current[i] = el} id={i} intersection={true} className="Card_Content">
                     <styles.SectionsContainer>
                         <styles.Section animation={true}>
                             <styles.IconDiv>

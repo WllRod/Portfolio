@@ -22,12 +22,12 @@ const ProjectsCard = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
                     {props.type}
             </s.TypeOfProject>
             <s.ImgDiv url={props.url} />
-            <s.ExpandInformations open={open}>
+            <s.ExpandInformations open={open} id="Card_Content">
                 <div style={{ display: 'flex', width: '100%', height: '100px', flexDirection: 'column'}}>
                    
                     <div style={{ width: '100%', height: '10%', alignItems: 'center', justifyContent: 'center',textAlign:'center'}}>
                         <IconButton onClick={() => setOpen(!open)} style={{height: '100%'}}>
-                            <DragHandle style={{fontSize: '30px', color: 'white'}}/>
+                            <DragHandle style={{fontSize: '30px'}} id="External_Icons"/>
                         </IconButton>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%'}}>
