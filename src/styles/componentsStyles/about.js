@@ -9,7 +9,7 @@ export const CardContent    = styles.div`
     padding-left:150px;
     padding-top:70px;
     margin-right: 200px;
-    position:relative;
+    
     @media screen and (max-width: 767px){
         &{
             flex-direction: column;
@@ -23,7 +23,7 @@ export const AboutContainer = styles.div`
     box-shadow: 1px 0px 5px black;
     margin-left:30px;
     overflow: auto;
-
+    
     width: 60vw;
     
     border-radius: 30px;
@@ -57,6 +57,7 @@ export const Section   = styles.div`
     margin-bottom:20px;
     font-size:16px;
     margin-right:20px;
+    position:relative;
     ${ props => props.showBorder && `
         border-left: 1px solid #ff4c60;
         @media screen and (max-width:1000px){
@@ -98,8 +99,8 @@ export const IMG    = styles.div`
 `
 export const Arrow  = styles.div`
     position:absolute;
-    left: ${ props => props.left}px;
-    top:110px;
+    left:-30px;
+    z-index:500;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     border-right: 20px solid;

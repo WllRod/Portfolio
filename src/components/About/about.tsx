@@ -75,9 +75,10 @@ const About = React.forwardRef<HTMLDivElement, Props>(( props, ref) => {
                    <styles.IMG image={Perfil} ref={ imgRef }></styles.IMG>
                 </styles.ImgContainer>
                 <styles.AboutContainer id="Card_Content">
-                    <Arrow imgRef={ imgRef }/>
+                    
               
                     <styles.Section showBorder={ false }>
+                        <styles.Arrow />
                         <span style={{ width: '100%', height: '100%'}}>
                         Olá, meu nome é William Rodrigues, sou desenvolvedor Full-Stack. Residente de Petrópolis, RJ. Tenho conhecimento avançado na linguagem Python e no framework Flask, e conhecimento intermediário em ReactJS e React Native. E claro, disposto a aprender sempre mais!
                        </span>

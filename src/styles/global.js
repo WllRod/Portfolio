@@ -17,6 +17,9 @@ const darkMode = css`
   #External_Icons{
     color:whitesmoke;
   }
+  #Menu{
+    background:#353353;
+  }
 `
 
 const lightMode = css`
@@ -49,7 +52,7 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
     text-decoration:none;
-    
+    scroll-behavior: smooth;
     
   }
   *::-webkit-scrollbar{
