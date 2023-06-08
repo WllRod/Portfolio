@@ -8,4 +8,4 @@ import Store from './store/index'
 ReactDOM.render(
     <App />,
     document.getElementById('root') as HTMLElement
-)
+) 
